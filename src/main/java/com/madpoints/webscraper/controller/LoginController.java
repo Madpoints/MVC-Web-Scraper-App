@@ -17,8 +17,6 @@ public class LoginController {
 	@PostMapping("/login")
 	public String submit(Model theModel) {
 		
-		theModel.addAllAttributes()
-		
 		return "submit";
 	}
 }
