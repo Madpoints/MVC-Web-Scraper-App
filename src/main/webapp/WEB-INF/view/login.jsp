@@ -24,6 +24,8 @@
 		<input type="submit" value="Login" />
 		
 	</form:form>
+	
+	<a href="${pageContext.request.contextPath}/register">New user? Register here</a>
 
 </body>
 
