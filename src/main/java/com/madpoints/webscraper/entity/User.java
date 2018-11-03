@@ -6,7 +6,6 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String wallet;
 	
 	public User() {
 	}
@@ -43,18 +42,10 @@ public class User {
 		this.email = email;
 	}
 
-	public String getWallet() {
-		return wallet;
-	}
-
-	public void setWallet(String wallet) {
-		this.wallet = wallet;
-	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", wallet=" + wallet + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 	
 }
