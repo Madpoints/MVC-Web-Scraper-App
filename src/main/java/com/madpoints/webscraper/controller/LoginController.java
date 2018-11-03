@@ -17,7 +17,7 @@ public class LoginController {
 	@PostMapping("/login")
 	public String submit(Model theModel) {
 		
-		return "submit";
+		return "home";
 	}
 }
 
