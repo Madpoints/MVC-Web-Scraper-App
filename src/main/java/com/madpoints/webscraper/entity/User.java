@@ -6,6 +6,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String wallet = "10,000.00";
 	
 	public User() {
 	}
@@ -42,6 +43,10 @@ public class User {
 		this.email = email;
 	}
 
+
+	public String getWallet() {
+		return wallet;
+	}
 
 	@Override
 	public String toString() {
