@@ -43,7 +43,6 @@ public class User {
 		this.email = email;
 	}
 
-
 	public String getWallet() {
 		return wallet;
 	}
