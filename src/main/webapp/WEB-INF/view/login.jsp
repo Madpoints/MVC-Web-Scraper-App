@@ -25,7 +25,7 @@
 		
 	</form:form>
 	
-	<a href="${pageContext.request.contextPath}/register">New user? Register here</a>
+	<a href="${pageContext.request.contextPath}/register/new">New user? Register here</a>
 
 </body>
 
