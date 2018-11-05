@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -23,10 +24,6 @@
 		
 		<p>
 			Email: <input type="email" name="email" />
-		</p>
-		
-		<p>
-			Wallet: <input type="number" name="wallet" />
 		</p>
 		
 		<input type="submit" value="Login" />
