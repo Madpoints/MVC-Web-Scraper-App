@@ -11,22 +11,33 @@
 
 <h3>Register</h3>
 
-	<form:form action="${pageContext.request.contextPath}/register"
-			   method="POST">
+	<form:form action="registerUser" modelAttribute="user" method="POST">
 			   
-		<p>
-			User name: <input type="text" name="username" />
-		</p>
+		<table>
+				<tbody>
+					<tr>
+						<td><label>First name:</label></td>
+						<td><form:input path="firstName" /></td>
+					</tr>
+				
+					<tr>
+						<td><label>Last name:</label></td>
+						<td><form:input path="lastName" /></td>
+					</tr>
 
-		<p>
-			Password: <input type="password" name="password" />
-		</p>
-		
-		<p>
-			Email: <input type="email" name="email" />
-		</p>
-		
-		<input type="submit" value="Login" />
+					<tr>
+						<td><label>Email:</label></td>
+						<td><form:input path="email" /></td>
+					</tr>
+
+					<tr>
+						<td><label></label></td>
+						<td><input type="submit" value="Register" /></td>
+					</tr>
+
+				
+				</tbody>
+			</table>
 		
 	</form:form>
 
