@@ -20,8 +20,7 @@
 	<mvc:annotation-driven/>
 
 	<!-- Define Spring MVC view resolver -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
@@ -39,7 +38,20 @@
         <property name="minPoolSize" value="5" />
         <property name="maxPoolSize" value="20" />
         <property name="maxIdleTime" value="30000" />
-	</bean>  
+	</bean> 
+	
+	<!-- Setup Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="packagesToScan" value="com.luv2code.springdemo.entity" />
+		<property name="hibernateProperties">
+		   <props>
+		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+		      <prop key="hibernate.show_sql">true</prop>
+		   </props>
+		</property>
+   </bean>	   
 
 	<!-- Load custom message resources -->
 	<bean id="messageSource"
