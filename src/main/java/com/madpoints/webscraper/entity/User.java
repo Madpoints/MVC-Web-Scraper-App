@@ -1,14 +1,45 @@
 package com.madpoints.webscraper.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="user_name")
+	private String userName;
+	
+	@Column(name="first_name")
 	private String firstName;
+	
+	@Column(name="last_name")
 	private String lastName;
+	
+	@Column(name="email")
 	private String email;
+	
+	@Column(name="wallet")
 	private String wallet = "10,000.00";
 	
 	public User() {
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public int getId() {
@@ -45,6 +76,10 @@ public class User {
 
 	public String getWallet() {
 		return wallet;
+	}
+
+	public void setWallet(String wallet) {
+		this.wallet = wallet;
 	}
 
 	@Override
