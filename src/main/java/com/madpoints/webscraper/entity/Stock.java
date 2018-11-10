@@ -1,12 +1,30 @@
 package com.madpoints.webscraper.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="stock")
 public class Stock {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
 	
+	@Column(name="symbol")
 	private String symbol;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="price")
 	private String price;
+	
 	private String change;
 	private String percentChange;
 	private String volume;
