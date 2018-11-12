@@ -1,5 +1,6 @@
 package com.madpoints.webscraper.service;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,10 @@ public class UserService {
 
 	public void registerUser(User newUser) {
 		
+		// current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
 		
+		// register new user
+		currentSession.saveOrUpdate(newUser);
 	}
 }
