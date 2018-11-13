@@ -32,7 +32,7 @@ public class User {
 	private String email;
 	
 	@Column(name="wallet")
-	private String wallet = "10,000.00";
+	private String wallet = "10000";
 	
 	public User() {
 	}
