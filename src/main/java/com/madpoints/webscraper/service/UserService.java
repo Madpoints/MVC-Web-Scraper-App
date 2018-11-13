@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.madpoints.webscraper.entity.User;
 
@@ -16,10 +17,15 @@ public class UserService {
 
 	public void registerUser(User newUser) {
 		
-		// current hibernate session
+	}
+	
+	@Transactional
+	public User getUser() {
+		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// register new user
-		currentSession.saveOrUpdate(newUser);
+		User theUser = currentSession.get(User.class, 1);
+		
+		return theUser;
 	}
 }

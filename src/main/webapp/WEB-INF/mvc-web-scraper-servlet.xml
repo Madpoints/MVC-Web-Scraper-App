@@ -31,9 +31,9 @@
           destroy-method="close">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
         <property name="jdbcUrl" 
-        			value="jdbc:mysql://localhost:3306/" />
-        <property name="user" value="" />
-        <property name="password" value="" /> 
+        			value="jdbc:mysql://localhost:3306/mvc_web_scraper?allowPublicKeyRetrieval=true&amp;useSSL=false" />
+        <property name="user" value="user" />
+        <property name="password" value="user" /> 
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="minPoolSize" value="5" />
