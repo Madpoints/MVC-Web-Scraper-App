@@ -23,7 +23,7 @@ public class LoginController {
 	@PostMapping("/login")
 	public String submit() {
 		
-		User user = userService.getUser();
+		User user = userService.getUser(1);
 		
 		user.toString();
 		
