@@ -1,3 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -8,7 +12,7 @@
 
 <body>
  
- 	Home
+ 	<p>Welcome ${user.userName}</p>
   
 </body>
 
