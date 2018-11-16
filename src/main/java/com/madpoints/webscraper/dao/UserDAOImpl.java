@@ -1,5 +1,7 @@
 package com.madpoints.webscraper.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -13,6 +15,12 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Override
+	public List<User> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public User getUser(int userId) {
