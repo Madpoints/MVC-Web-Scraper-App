@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.madpoints.webscraper.entity.Login;
 import com.madpoints.webscraper.entity.User;
 
 @Repository
@@ -38,6 +39,12 @@ public class UserDAOImpl implements UserDAO {
 		User theUser = currentSession.get(User.class, userId);
 		
 		return theUser;
+	}
+	
+	@Override
+	public void loginUser(Login login) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
