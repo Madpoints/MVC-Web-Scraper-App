@@ -18,8 +18,16 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public List<User> getUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query<User> theQuery = 
+				currentSession.createQuery("from User order by userName",
+											User.class);
+		
+		List<User> users = theQuery.getResultList();
+		
+		return users;
 	}
 
 	@Override
