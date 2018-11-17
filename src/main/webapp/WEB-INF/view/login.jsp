@@ -11,6 +11,7 @@
 <h3>Login</h3>
 
 	<form:form action="${pageContext.request.contextPath}/login"
+			   modelAttribute="login"
 			   method="POST">
 			   
 		<p>
