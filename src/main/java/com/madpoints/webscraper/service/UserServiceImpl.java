@@ -1,5 +1,7 @@
 package com.madpoints.webscraper.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Override
+	public List<User> getUsers() {
+		
+		return userDAO.getUsers();
+	}
 
 	@Override
 	@Transactional
@@ -33,6 +41,5 @@ public class UserServiceImpl implements UserService {
 		
 		userDAO.deleteUser(userId);
 	}
-	
-	
+
 }
