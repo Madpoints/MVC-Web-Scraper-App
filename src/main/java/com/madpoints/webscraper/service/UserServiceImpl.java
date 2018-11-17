@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.madpoints.webscraper.dao.UserDAO;
+import com.madpoints.webscraper.entity.Login;
 import com.madpoints.webscraper.entity.User;
 
 @Service
@@ -26,6 +27,12 @@ public class UserServiceImpl implements UserService {
 	public User getUser(int userId) {
 		
 		return userDAO.getUser(userId);
+	}
+	
+	@Override
+	public void loginUser(Login login) {
+		
+		userDAO.loginUser(login);
 	}
 
 	@Override
