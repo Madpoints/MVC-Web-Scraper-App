@@ -1,5 +1,7 @@
 package com.madpoints.webscraper.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,11 +26,9 @@ public class LoginController {
 	@PostMapping("/login")
 	public String submit(Model theModel) {
 		
-		User theUser = userService.getUser(1);
+		List<User> theUsers = userService.getUsers();
 		
-		System.out.println(theUser.toString());
-		
-		theModel.addAttribute("user", theUser);
+		theModel.addAttribute("user", theUsers);
 		
 		return "home";
 	}
