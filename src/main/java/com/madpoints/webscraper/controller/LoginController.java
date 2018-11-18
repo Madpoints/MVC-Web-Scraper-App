@@ -17,7 +17,9 @@ public class LoginController {
 	private UserService userService;
 
 	@GetMapping("/login")
-	public String login() {
+	public String login(Model theModel) {
+		
+		theModel.addAttribute("login", new Login());
 		
 		return "login";
 	}
@@ -25,7 +27,7 @@ public class LoginController {
 	@PostMapping("/login")
 	public String loginUser(@ModelAttribute("login") Login login, 
 							Model theModel) {
-		
+		System.out.println(login.getUserName());
 		userService.loginUser(login);
 		
 		return "home";
