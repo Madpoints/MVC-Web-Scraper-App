@@ -43,8 +43,18 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public void loginUser(Login login) {
-		// TODO Auto-generated method stub
 		
+		List<User> users = getUsers();
+		
+		for (User tempUser : users) {
+			
+			if (login.getUserName() == tempUser.getUserName()) {
+					
+					System.out.println("Logged in!");
+			} else {
+				 System.out.println("not");
+			}
+		}
 	}
 
 	@Override
