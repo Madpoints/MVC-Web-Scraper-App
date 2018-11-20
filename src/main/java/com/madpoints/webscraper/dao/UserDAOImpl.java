@@ -44,17 +44,29 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void loginUser(Login login) {
 		
-		List<User> users = getUsers();
+		String userName = login.getUserName();
 		
-		for (User tempUser : users) {
-			
-			if (login.getUserName() == tempUser.getUserName()) {
-					
-					System.out.println("Logged in!");
-			} else {
-				 System.out.println("not");
-			}
-		}
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query<User> theQuery = 
+				currentSession.createQuery("select from User where userName=:user",
+											User.class);
+		
+		theQuery.setParameter("user", userName);
+		
+		User user = theQuery.getSingleResult();
+		
+		user.toString();
+//		List<User> users = getUsers();
+//		
+//		for (User tempUser : users) {
+//			
+//			if (login.getUserName() == tempUser.getUserName()) {
+//					System.out.println("Logged in!");
+//			} 
+//			
+//		}
+		
 	}
 
 	@Override
