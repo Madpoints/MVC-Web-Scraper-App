@@ -15,6 +15,17 @@
 			   
 		<table>
 				<tbody>
+					
+					<tr>
+						<td><label>User name:</label></td>
+						<td><form:input path="userName" /></td>
+					</tr>
+					
+					<tr>
+						<td><label>Password:</label></td>
+						<td><form:input path="password" /></td>
+					</tr>
+					
 					<tr>
 						<td><label>First name:</label></td>
 						<td><form:input path="firstName" /></td>
