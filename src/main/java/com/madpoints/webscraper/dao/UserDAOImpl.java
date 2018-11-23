@@ -59,11 +59,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void registerUser(User theUser) {
+	public void registerUser(User user) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 
-		currentSession.saveOrUpdate(theUser);
+		currentSession.saveOrUpdate(user);
 		
 	}
 
