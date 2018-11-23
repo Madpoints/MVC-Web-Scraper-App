@@ -15,6 +15,9 @@
 			  
 		<!-- associate this data with user id -->
 		<form:hidden path="id" />	  
+		
+		<form:hidden path="wallet" />	  
+		
 			   
 		<table>
 				<tbody>
