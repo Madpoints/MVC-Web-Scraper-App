@@ -14,7 +14,9 @@ public class RegisterController {
 	@GetMapping("/new")
 	public String showRegistration(Model theModel) {
 		
-		theModel.addAttribute("user", new User());
+		User user = new User();
+		
+		theModel.addAttribute("user", user);
 		
 		return "register";
 	}
