@@ -32,6 +32,7 @@ public class RegisterController {
 	@PostMapping("/registerUser")
 	public String registerUser(@ModelAttribute("user") User user) {
 		
+		userService.registerUser(user);
 	
 		return "home";
 	}
