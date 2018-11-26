@@ -21,7 +21,7 @@ public class UserController {
 		
 		userService.loginUser(login);
 		
-		return "home";
+		return "redirect:/home";
 	}
 	
 	@PostMapping("/register")
@@ -29,7 +29,7 @@ public class UserController {
 		
 		userService.registerUser(user);
 	
-		return "home";
+		return "redirect:/home";
 	}
 
 }
