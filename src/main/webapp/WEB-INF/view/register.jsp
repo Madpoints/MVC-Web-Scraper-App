@@ -11,7 +11,7 @@
 
 <h3>Register</h3>
 
-	<form:form action="registerUser" 
+	<form:form action="register" 
 				modelAttribute="user" 
 				method="POST">
 			  
