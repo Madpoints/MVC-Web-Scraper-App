@@ -1,14 +1,20 @@
 package com.madpoints.webscraper.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.madpoints.webscraper.entity.Login;
 import com.madpoints.webscraper.entity.User;
+import com.madpoints.webscraper.service.UserService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/login")
 	public String displayLogin(Model theModel) {
@@ -30,8 +36,13 @@ public class HomeController {
 		return "register";
 	}
 	
-	@GetMapping("/home")
-	public String displayHome(Model theModel) {
+	@GetMapping("/home/{userId}")
+	public String displayHome(@PathVariable("userId") int userId,
+								Model theModel) {
+		
+		User theUser = userService.getUser(userId);
+		
+		theModel.addAttribute("user", theUser);
 		
 		return "home";
 	}
