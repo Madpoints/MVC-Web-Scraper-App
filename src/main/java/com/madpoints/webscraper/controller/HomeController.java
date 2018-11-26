@@ -10,14 +10,6 @@ import com.madpoints.webscraper.entity.User;
 @Controller
 public class HomeController {
 	
-	@GetMapping("/home")
-	public String displayHome(Model theModel) {
-		
-		//theModel.addAttribute(arg0);
-		
-		return "home";
-	}
-	
 	@GetMapping("/login")
 	public String displayLogin(Model theModel) {
 		
@@ -36,6 +28,12 @@ public class HomeController {
 		theModel.addAttribute("user", newUser);
 		
 		return "register";
+	}
+	
+	@GetMapping("/home")
+	public String displayHome(Model theModel) {
+		
+		return "home";
 	}
 
 }
