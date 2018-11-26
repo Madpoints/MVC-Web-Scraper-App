@@ -11,7 +11,9 @@
 
 <h3>Register</h3>
 
-	<form:form action="registerUser" modelAttribute="user" method="POST">
+	<form:form action="registerUser" 
+				modelAttribute="user" 
+				method="POST">
 			  
 		<!-- associate this data with user id -->
 		<form:hidden path="id" />	  
