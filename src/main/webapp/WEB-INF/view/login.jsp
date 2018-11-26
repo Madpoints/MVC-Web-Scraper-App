@@ -10,7 +10,7 @@
 
 <h3>Login</h3>
 
-	<form:form action="${pageContext.request.contextPath}/login"
+	<form:form action="login"
 			   modelAttribute="login"
 			   method="POST">
 			   
@@ -26,7 +26,7 @@
 		
 	</form:form>
 	
-	<a href="${pageContext.request.contextPath}/register/new">New user? Register here</a>
+	<a href="${pageContext.request.contextPath}/register">New user? Register here</a>
 
 </body>
 
