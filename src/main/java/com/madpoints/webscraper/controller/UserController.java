@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.madpoints.webscraper.entity.Login;
 import com.madpoints.webscraper.entity.User;
@@ -17,19 +18,21 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/login")
-	public String login(@ModelAttribute("login") Login login, Model theModel) {
+	public String login(@ModelAttribute("login") Login loginInfo, Model theModel) {
 		
-		userService.loginUser(login);
+		userService.loginUser(loginInfo);
 		
 		return "redirect:/home";
 	}
 	
 	@PostMapping("/register")
-	public String registerUser(@ModelAttribute("user") User user) {
+	public String registerUser(@ModelAttribute("user") User newUser, RedirectAttributes redirectAtt) {
 		
-		userService.registerUser(user);
+		userService.registerUser(newUser);
+		
+		redirectAtt.addAttribute("userId", newUser.getId());
 	
-		return "redirect:/home";
+		return "redirect:/home/{userId}";
 	}
 
 }
