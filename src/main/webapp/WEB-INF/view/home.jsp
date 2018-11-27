@@ -13,6 +13,14 @@
 <body>
  
  	<p>Welcome ${user.userName}</p>
+ 	
+ 	<!-- "delete" link with user id -->
+	<c:url var="deleteLink" value="/delete">
+		<c:param name="userId" value="${user.id}" />
+	</c:url>
+	
+	<a href="${deleteLink}"
+		onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>			
   
 </body>
 
