@@ -40,6 +40,8 @@ public class UserController {
 	@GetMapping("/delete")
 	public String deleteUser(@RequestParam("userId") int userId) {
 		
+		userService.deleteUser(userId);
+		
 		return "redirect:/login";
 	}
 	
