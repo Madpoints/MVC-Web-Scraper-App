@@ -75,7 +75,7 @@ public class UserDAOImpl implements UserDAO {
 
 		// delete object with primary key
 		Query theQuery = 
-				currentSession.createQuery("delete from Customer where id=:userId");
+				currentSession.createQuery("delete from User where id=:userId");
 		theQuery.setParameter("userId", userId);
 		
 		theQuery.executeUpdate();	
