@@ -44,17 +44,15 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void loginUser(Login login) {
 		
-		List<User> users = getUsers();
+		// use login class to search db for user
 		
-		for (User tempUser : users) {
-			
-			System.out.println(tempUser.toString());
-			
-			if (login.getUserName() == tempUser.getUserName()) {
-					System.out.println("Logged in!");
-			} 
-			
-		}
+		// if user not found redirect to registration page
+		
+		// if user found compare users password with login password
+		
+		// if password does not match redirect to login page
+		
+		// return user
 		
 	}
 
