@@ -42,17 +42,27 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public void loginUser(Login login) {
+	public User loginUser(Login login) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query theQuery = currentSession.createQuery("from User where userName=:userName");
+		
+		theQuery.setParameter("userName", login.getUserName());
+		
+		System.out.println(theQuery.getSingleResult().toString());
 		
 		// use login class to search db for user
 		
-		// if user not found redirect to registration page
+		// if user not found 
 		
-		// if user found compare users password with login password
+			// redirect to registration page
 		
-		// if password does not match redirect to login page
+		// else if password does not match 
 		
-		// return user
+			// redirect to login page
+		
+		return null;
 		
 	}
 
