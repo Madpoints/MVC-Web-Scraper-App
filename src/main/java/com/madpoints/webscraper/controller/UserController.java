@@ -20,11 +20,11 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/login")
-	public String loginUser(@ModelAttribute("login") Login loginInfo, Model theModel) {
+	public String loginUser(@ModelAttribute("login") Login loginInfo, RedirectAttributes redirectAtt) {
 		
-		userService.loginUser(loginInfo);
+		redirectAtt.addAttribute("userId", userService.loginUser(loginInfo));
 		
-		return "redirect:/home";
+		return "redirect:/home/{userId}";
 	}
 	
 	@PostMapping("/register")
