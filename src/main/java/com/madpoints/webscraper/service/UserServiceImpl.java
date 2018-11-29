@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	@Transactional
-	public User loginUser(Login login) {
+	public int loginUser(Login login) {
 		
 		return userDAO.loginUser(login);
 	}

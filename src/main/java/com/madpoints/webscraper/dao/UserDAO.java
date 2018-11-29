@@ -11,7 +11,7 @@ public interface UserDAO {
 
 	public User getUser(int userId);
 	
-	public User loginUser(Login login);
+	public int loginUser(Login login);
 	
 	public void registerUser(User theUser);
 	

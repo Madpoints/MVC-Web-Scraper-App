@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public User loginUser(Login login) {
+	public int loginUser(Login login) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -50,19 +50,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		theQuery.setParameter("userName", login.getUserName());
 		
-		System.out.println(theQuery.getSingleResult().toString());
+		User loggedInUser = (User) theQuery.getSingleResult();
 		
-		// use login class to search db for user
+		System.out.println(loggedInUser.toString());
 		
-		// if user not found 
-		
-			// redirect to registration page
-		
-		// else if password does not match 
-		
-			// redirect to login page
-		
-		return null;
+		return loggedInUser.getId();
 		
 	}
 
