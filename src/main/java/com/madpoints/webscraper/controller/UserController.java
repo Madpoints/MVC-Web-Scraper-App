@@ -23,7 +23,11 @@ public class UserController {
 		
 		int userId = userService.loginUser(loginInfo);
 
-		System.out.println(userId);
+		// if user not found redirect to login page
+		if (userId < 0) {
+			
+			return "redirect:/login";
+		}
 		
 		redirectAtt.addAttribute("userId", userId);
 		
