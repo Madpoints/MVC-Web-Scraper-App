@@ -50,15 +50,15 @@ public class UserDAOImpl implements UserDAO {
 		
 		theQuery.setParameter("userName", login.getUserName());
 		
-		System.out.println(theQuery.getResultList());
+		System.out.println(theQuery.getResultList().isEmpty());
 		
-		User loggedInUser = (User) theQuery.getResultList();
+		if (theQuery.getResultList().isEmpty()) {
+			
+			return -1;
+		}
 		
-//		User loggedInUser = (User) theQuery.getSingleResult();
-		
-		// return user id if user successfully logged in 
-		
-		// else return -1 if user not found
+		// get first result and cast it to a User
+		User loggedInUser = (User) theQuery.getResultList().get(0);
 		
 		return loggedInUser.getId();
 		
