@@ -41,6 +41,7 @@ public class UserDAOImpl implements UserDAO {
 		return theUser;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public int loginUser(Login login) {
 		
@@ -50,8 +51,6 @@ public class UserDAOImpl implements UserDAO {
 		
 		theQuery.setParameter("userName", login.getUserName());
 		
-		System.out.println(theQuery.getResultList().isEmpty());
-		
 		if (theQuery.getResultList().isEmpty()) {
 			
 			return -1;
@@ -59,6 +58,13 @@ public class UserDAOImpl implements UserDAO {
 		
 		// get first result and cast it to a User
 		User loggedInUser = (User) theQuery.getResultList().get(0);
+		
+		System.out.println(loggedInUser.getPassword() + " = " + login.getPassword());
+		
+		if (!loggedInUser.getPassword().equals(login.getPassword())) {
+			
+			return -1;
+		}
 		
 		return loggedInUser.getId();
 		
