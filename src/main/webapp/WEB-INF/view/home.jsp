@@ -12,11 +12,11 @@
 
 <body>
  
- 	<p>Welcome ${user.userName}</p>
+ 	<p>Welcome ${theUser.userName}</p>
  	
  	<!-- "delete" link with user id -->
 	<c:url var="deleteLink" value="/delete">
-		<c:param name="userId" value="${user.id}" />
+		<c:param name="userId" value="${theUser.id}" />
 	</c:url>
 	
 	<a href="${deleteLink}"

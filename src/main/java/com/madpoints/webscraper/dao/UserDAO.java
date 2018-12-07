@@ -13,7 +13,7 @@ public interface UserDAO {
 	
 	public int loginUser(Login login);
 	
-	public void registerUser(User theUser);
+	public void registerUser(User newUser);
 	
 	public void deleteUser(int userId);
 	
