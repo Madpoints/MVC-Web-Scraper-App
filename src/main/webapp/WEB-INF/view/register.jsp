@@ -26,27 +26,27 @@
 					
 					<tr>
 						<td><label>User name:</label></td>
-						<td><form:input path="userName" /></td>
+						<td><form:input path="userName" required/></td>
 					</tr>
 					
 					<tr>
 						<td><label>Password:</label></td>
-						<td><form:input path="password" /></td>
+						<td><form:input path="password" required/></td>
 					</tr>
 					
 					<tr>
 						<td><label>First name:</label></td>
-						<td><form:input path="firstName" /></td>
+						<td><form:input path="firstName" required/></td>
 					</tr>
 				
 					<tr>
 						<td><label>Last name:</label></td>
-						<td><form:input path="lastName" /></td>
+						<td><form:input path="lastName" required/></td>
 					</tr>
 
 					<tr>
 						<td><label>Email:</label></td>
-						<td><form:input path="email" /></td>
+						<td><form:input path="email" required/></td>
 					</tr>
 
 					<tr>
