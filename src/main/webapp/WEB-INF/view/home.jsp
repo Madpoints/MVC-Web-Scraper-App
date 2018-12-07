@@ -20,7 +20,9 @@
 	</c:url>
 	
 	<a href="${deleteLink}"
-		onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>			
+		onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>		
+		
+	<a href="${pageContext.request.contextPath}/login">Log Out</a>	
   
 </body>
 
