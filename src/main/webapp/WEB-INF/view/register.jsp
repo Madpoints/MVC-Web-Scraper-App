@@ -59,6 +59,8 @@
 			</table>
 		
 	</form:form>
+	
+	<a href="${pageContext.request.contextPath}/login">Login</a>
 
 </body>
 
