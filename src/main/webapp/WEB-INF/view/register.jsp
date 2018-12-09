@@ -31,7 +31,7 @@
 					
 					<tr>
 						<td><label>Password:</label></td>
-						<td><form:input path="password" required/></td>
+						<td><form:input path="password" type="password" required/></td>
 					</tr>
 					
 					<tr>
@@ -46,7 +46,7 @@
 
 					<tr>
 						<td><label>Email:</label></td>
-						<td><form:input path="email" required/></td>
+						<td><form:input path="email" type="email" required/></td>
 					</tr>
 
 					<tr>
