@@ -15,11 +15,11 @@
 			   method="POST">
 			   
 		<p>
-			User name: <form:input path="userName"/>
+			User name: <form:input path="userName" required/>
 		</p>
 
 		<p>
-			Password: <form:input path="password"/>
+			Password: <form:input path="password" type="password" required/>
 		</p>
 		
 		<input type="submit" value="Login" />
