@@ -11,9 +11,11 @@ public interface UserDAO {
 
 	public User getUser(int userId);
 	
+	public User getUser(String userName);
+	
 	public int loginUser(Login login);
 	
-	public void registerUser(User newUser);
+	public boolean registerUser(User newUser);
 	
 	public void deleteUser(int userId);
 	
