@@ -37,11 +37,14 @@ public class UserController {
 	@PostMapping("/register")
 	public String registerUser(@ModelAttribute("user") User newUser, RedirectAttributes redirectAtt) {
 		
-		userService.registerUser(newUser);
+		if (userService.registerUser(newUser)) {
 		
-		redirectAtt.addAttribute("userId", newUser.getId());
-	
-		return "redirect:/home/{userId}";
+			redirectAtt.addAttribute("userId", newUser.getId());
+		
+			return "redirect:/home/{userId}";
+		}
+		
+		return "redirect:/register";
 	}
 	
 	@GetMapping("/delete")
