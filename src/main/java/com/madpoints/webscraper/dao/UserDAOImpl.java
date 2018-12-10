@@ -43,40 +43,52 @@ public class UserDAOImpl implements UserDAO {
 	
 	@SuppressWarnings("rawtypes")
 	@Override
-	public int loginUser(Login login) {
-		
+	public User getUser(String userName) {
+
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query theQuery = currentSession.createQuery("from User where userName=:userName");
 		
-		theQuery.setParameter("userName", login.getUserName());
+		theQuery.setParameter("userName", userName);
 		
 		List results = theQuery.getResultList();
 		
 		if (results.isEmpty()) {
 			
-			return -1;
+			return null;
 		}
 		
-		// get first result and cast it to a User
-		User loggedInUser = (User) theQuery.getResultList().get(0);
+		return (User) results.get(0);
+	}
+
+	
+	@Override
+	public int loginUser(Login login) {
 		
-		if (!loggedInUser.getPassword().equals(login.getPassword())) {
+		User loggedInUser = getUser(login.getUserName());
+		
+		if (loggedInUser ==  null || 
+			!loggedInUser.getPassword().equals(login.getPassword())) {
 			
 			return -1;
 		}
 		
-		return loggedInUser.getId();
-		
+		return loggedInUser.getId();	
 	}
 
 	@Override
-	public void registerUser(User user) {
-
+	public boolean registerUser(User user) {
+		
+		if (getUser(user.getUserName()) != null) {
+			
+			return false;
+		}
+		
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		currentSession.saveOrUpdate(user);
 		
+		return true;	
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -91,7 +103,6 @@ public class UserDAOImpl implements UserDAO {
 		theQuery.setParameter("userId", userId);
 		
 		theQuery.executeUpdate();	
-
 	}
 
 }
