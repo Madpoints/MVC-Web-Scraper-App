@@ -13,7 +13,7 @@ public interface UserService {
 	
 	public int loginUser(Login login);
 	
-	public void registerUser(User theUser);
+	public boolean registerUser(User theUser);
 	
 	public void deleteUser(int userId);
 	
