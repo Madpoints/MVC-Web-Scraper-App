@@ -42,7 +42,7 @@ public class AppController {
 		
 		User theUser = userService.getUser(userId);
 		
-		theModel.addAttribute("user", theUser);
+		theModel.addAttribute("theUser", theUser);
 		
 		return "home";
 	}
