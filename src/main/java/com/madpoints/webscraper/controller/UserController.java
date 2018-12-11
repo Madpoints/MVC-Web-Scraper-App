@@ -23,7 +23,6 @@ public class UserController {
 		
 		int userId = userService.loginUser(loginInfo);
 
-		// if user not found redirect to login page
 		if (userId < 0) {
 			
 			return "redirect:/login";
@@ -37,14 +36,14 @@ public class UserController {
 	@PostMapping("/register")
 	public String registerUser(@ModelAttribute("user") User newUser, RedirectAttributes redirectAtt) {
 		
-		if (userService.registerUser(newUser)) {
+		if (!userService.registerUser(newUser)) {
 		
-			redirectAtt.addAttribute("userId", newUser.getId());
-		
-			return "redirect:/home/{userId}";
+			return "redirect:/register";
 		}
 		
-		return "redirect:/register";
+		redirectAtt.addAttribute("userId", newUser.getId());
+		
+		return "redirect:/home/{userId}";
 	}
 	
 	@GetMapping("/delete")
