@@ -6,6 +6,10 @@ import com.madpoints.webscraper.entity.Stock;
 
 public interface StockDAO {
 	
-	List<Stock> getStocks();
+	public List<Stock> getStocks();
+	
+	public void saveStock(Stock stock);
+	
+	
 
 }
