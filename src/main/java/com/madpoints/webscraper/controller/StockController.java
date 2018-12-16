@@ -27,5 +27,11 @@ public class StockController {
 		
 		return "stock-list";
 	}
+	
+	@GetMapping("/info")
+	public String getStockInfo(Stock stock) {
+		
+		return "stock-info";
+	}
 
 }
