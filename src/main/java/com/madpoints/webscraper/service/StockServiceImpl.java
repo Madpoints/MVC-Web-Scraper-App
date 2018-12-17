@@ -18,4 +18,10 @@ public class StockServiceImpl implements StockService {
 		return stockDAO.getStocks();
 	}
 
+	@Override
+	public Stock getStock(int stockId) {
+		
+		return stockDAO.getStock(stockId);
+	}
+
 }
