@@ -18,6 +18,13 @@ public class StockDAOImpl implements StockDAO {
 		
 		return null;
 	}
+	
+	@Override
+	public Stock getStock(int stockId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 	@Override
 	public void saveStock(Stock stock) {
@@ -27,5 +34,5 @@ public class StockDAOImpl implements StockDAO {
 		currentSession.saveOrUpdate(stock);
 		
 	}
-	
+
 }
