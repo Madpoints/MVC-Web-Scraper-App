@@ -21,8 +21,12 @@ public class StockDAOImpl implements StockDAO {
 	
 	@Override
 	public Stock getStock(int stockId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Stock theStock = currentSession.get(Stock.class, stockId);
+		
+		return theStock;
 	}
 	
 
