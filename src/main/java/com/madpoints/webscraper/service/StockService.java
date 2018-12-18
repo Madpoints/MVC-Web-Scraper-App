@@ -9,5 +9,7 @@ public interface StockService {
 	public List<Stock> getStocks();
 	
 	public Stock getStock(int stockId);
+	
+	public void saveStock(Stock stock);
 
 }
