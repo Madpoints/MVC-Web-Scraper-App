@@ -2,6 +2,7 @@ package com.madpoints.webscraper.dao;
 
 import java.util.List;
 
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,15 @@ public class StockDAOImpl implements StockDAO {
 	@Override
 	public List<Stock> getStocks() {
 		
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query<Stock> theQuery = 
+				currentSession.createQuery("from Stock order by stockName",
+											Stock.class);
+		
+		List<Stock> stocks = theQuery.getResultList();
+		
+		return stocks;
 	}
 	
 	@Override
