@@ -29,7 +29,9 @@ public class StockController {
 	}
 	
 	@GetMapping("/info")
-	public String getStockInfo(Stock stock) {
+	public String getStockInfo(Stock stock, Model theModel) {
+		
+		theModel.addAttribute("stock", stock);
 		
 		return "stock-info";
 	}
