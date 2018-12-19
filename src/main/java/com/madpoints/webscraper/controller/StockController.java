@@ -21,6 +21,8 @@ public class StockController {
 	@GetMapping("/list")
 	public String getStocks(Model theModel) {
 		
+		scrapeAndSaveStocks();
+		
 		List<Stock> stocks = stockService.getStocks();
 		
 		theModel.addAttribute("stocks", stocks);
@@ -34,6 +36,11 @@ public class StockController {
 		theModel.addAttribute("stock", stock);
 		
 		return "stock-info";
+	}
+	
+	private void scrapeAndSaveStocks() {
+		
+		
 	}
 
 }
