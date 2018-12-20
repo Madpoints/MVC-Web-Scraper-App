@@ -2,6 +2,8 @@ package com.madpoints.webscraper.controller;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,11 +40,16 @@ public class StockController {
 		return "stock-info";
 	}
 	
-	private void scrapeStocks() {
+	private static List<Stock> scrapeStocks() {
 		
+		// path to chrome webdriver exe
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\John\\careerDevs\\Selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.finance.yahoo.com/most-active");
 		
+		driver.quit();
 		
-		
+		return null;		
 	}
 
 }
