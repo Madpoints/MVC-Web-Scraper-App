@@ -25,9 +25,9 @@ public class StockServiceImpl implements StockService {
 	}
 
 	@Override
-	public void saveStock(Stock stock) {
+	public void saveStock(List<Stock> stocks) {
 		
-		stockDAO.saveStock(stock);
+		stockDAO.saveStock(stocks);
 	}
 
 }

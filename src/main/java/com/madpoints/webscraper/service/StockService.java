@@ -10,6 +10,6 @@ public interface StockService {
 	
 	public Stock getStock(int stockId);
 	
-	public void saveStock(Stock stock);
+	public void saveStock(List<Stock> stocks);
 
 }
