@@ -51,4 +51,16 @@ public class StockDAOImpl implements StockDAO {
 		
 	}
 
+	@Override
+	public void buyStock(int stockId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sellStock(int stockId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
