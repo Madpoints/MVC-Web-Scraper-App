@@ -30,4 +30,16 @@ public class StockServiceImpl implements StockService {
 		stockDAO.saveStock(stocks);
 	}
 
+	@Override
+	public void buyStock(int stockId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sellStock(int stockId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
