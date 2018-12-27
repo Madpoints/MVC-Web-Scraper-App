@@ -12,8 +12,4 @@ public interface StockService {
 	
 	public void saveStock(List<Stock> stocks);
 	
-	public void buyStock(int stockId);
-	
-	public void sellStock(int stockId);
-
 }
