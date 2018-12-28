@@ -163,6 +163,15 @@ public class StockController {
 		
 		return stocks;
 	}
+	
+	private void buyStock(Stock stock) {
+		
+	}
+	
+	private void sellStock(Stock stock) {
+		
+	}
+	
 
 
 }
