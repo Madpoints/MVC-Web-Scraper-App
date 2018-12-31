@@ -17,7 +17,7 @@ import com.madpoints.webscraper.entity.Stock;
 import com.madpoints.webscraper.service.StockService;
 
 @Controller
-@RequestMapping("/stocks")
+@RequestMapping("/stock")
 public class StockController {
 	
 	@Autowired
