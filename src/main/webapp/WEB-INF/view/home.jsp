@@ -14,6 +14,8 @@
  
  	<p>Welcome ${theUser.userName}</p>
  	
+ 	<a href="${pageContext.request.contextPath}/stock/list">View Stocks</a> 
+ 	
  	<!-- "delete" link with user id -->
 	<c:url var="deleteLink" value="/delete">
 		<c:param name="userId" value="${theUser.id}" />
