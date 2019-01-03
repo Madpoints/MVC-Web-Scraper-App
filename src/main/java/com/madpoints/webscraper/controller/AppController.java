@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.madpoints.webscraper.entity.Login;
 import com.madpoints.webscraper.entity.User;
-import com.madpoints.webscraper.service.StockService;
 import com.madpoints.webscraper.service.UserService;
 
 @Controller
@@ -16,9 +15,6 @@ public class AppController {
 	
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private StockService stockService;
 	
 	@GetMapping("/login")
 	public String displayLogin(Model theModel) {
