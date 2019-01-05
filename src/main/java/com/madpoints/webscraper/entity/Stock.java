@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="stock")
+@Table(name="stocks")
 public class Stock {
 	
 	@Id
@@ -25,12 +25,12 @@ public class Stock {
 	@Column(name="price")
 	private String price;
 	
-	private String change;
-	private String percentChange;
-	private String volume;
-	private String avgVolume;
-	private String marketCap;
-	private String peRatio;
+//	private String change;
+//	private String percentChange;
+//	private String volume;
+//	private String avgVolume;
+//	private String marketCap;
+//	private String peRatio;
 	
 	public Stock() {
 	}
@@ -67,59 +67,59 @@ public class Stock {
 		this.price = price;
 	}
 
-	public String getChange() {
-		return change;
-	}
-
-	public void setChange(String change) {
-		this.change = change;
-	}
-
-	public String getPercentChange() {
-		return percentChange;
-	}
-
-	public void setPercentChange(String percentChange) {
-		this.percentChange = percentChange;
-	}
-
-	public String getVolume() {
-		return volume;
-	}
-
-	public void setVolume(String volume) {
-		this.volume = volume;
-	}
-
-	public String getAvgVolume() {
-		return avgVolume;
-	}
-
-	public void setAvgVolume(String avgVolume) {
-		this.avgVolume = avgVolume;
-	}
-
-	public String getMarketCap() {
-		return marketCap;
-	}
-
-	public void setMarketCap(String marketCap) {
-		this.marketCap = marketCap;
-	}
-
-	public String getPeRatio() {
-		return peRatio;
-	}
-
-	public void setPeRatio(String peRatio) {
-		this.peRatio = peRatio;
-	}
-
-	@Override
-	public String toString() {
-		return "Stock [id=" + id + ", symbol=" + symbol + ", name=" + name + ", price=" + price + ", change=" + change
-				+ ", percentChange=" + percentChange + ", volume=" + volume + ", avgVolume=" + avgVolume
-				+ ", marketCap=" + marketCap + ", peRatio=" + peRatio + "]";
-	}
+//	public String getChange() {
+//		return change;
+//	}
+//
+//	public void setChange(String change) {
+//		this.change = change;
+//	}
+//
+//	public String getPercentChange() {
+//		return percentChange;
+//	}
+//
+//	public void setPercentChange(String percentChange) {
+//		this.percentChange = percentChange;
+//	}
+//
+//	public String getVolume() {
+//		return volume;
+//	}
+//
+//	public void setVolume(String volume) {
+//		this.volume = volume;
+//	}
+//
+//	public String getAvgVolume() {
+//		return avgVolume;
+//	}
+//
+//	public void setAvgVolume(String avgVolume) {
+//		this.avgVolume = avgVolume;
+//	}
+//
+//	public String getMarketCap() {
+//		return marketCap;
+//	}
+//
+//	public void setMarketCap(String marketCap) {
+//		this.marketCap = marketCap;
+//	}
+//
+//	public String getPeRatio() {
+//		return peRatio;
+//	}
+//
+//	public void setPeRatio(String peRatio) {
+//		this.peRatio = peRatio;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Stock [id=" + id + ", symbol=" + symbol + ", name=" + name + ", price=" + price + ", change=" + change
+//				+ ", percentChange=" + percentChange + ", volume=" + volume + ", avgVolume=" + avgVolume
+//				+ ", marketCap=" + marketCap + ", peRatio=" + peRatio + "]";
+//	}
 
 }
