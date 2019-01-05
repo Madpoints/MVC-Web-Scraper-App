@@ -22,7 +22,7 @@ public class StockDAOImpl implements StockDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<Stock> theQuery = 
-				currentSession.createQuery("from Stocks order by name",
+				currentSession.createQuery("from Stock order by name",
 											Stock.class);
 		
 		List<Stock> stocks = theQuery.getResultList();

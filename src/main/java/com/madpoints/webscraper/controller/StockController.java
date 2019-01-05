@@ -62,13 +62,13 @@ public class StockController {
 		List<WebElement> stockSymbolElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Symbol']"));
 		List<WebElement> stockNameElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Name']"));
 		List<WebElement> stockPriceElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Price (Intraday)']"));
-		List<WebElement> stockChangeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Change']"));
+//		List<WebElement> stockChangeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Change']"));
 		// escape % char?
-		List<WebElement> stockPercentChangeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='% Change']"));
-		List<WebElement> stockVolumeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Volume']"));
-		List<WebElement> stockAvgVolumeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Avg Vol (3 month)']"));
-		List<WebElement> stockMarketCapElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Market Cap']"));
-		List<WebElement> stockPeRatioElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='PE Ratio (TTM)']"));
+//		List<WebElement> stockPercentChangeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='% Change']"));
+//		List<WebElement> stockVolumeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Volume']"));
+//		List<WebElement> stockAvgVolumeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Avg Vol (3 month)']"));
+//		List<WebElement> stockMarketCapElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Market Cap']"));
+//		List<WebElement> stockPeRatioElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='PE Ratio (TTM)']"));
 
 		List<Stock> stocks = new ArrayList<Stock>();
 		
