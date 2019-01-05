@@ -10,6 +10,6 @@ public interface StockDAO {
 	
 	public Stock getStock(int stockId);
 	
-	public void saveStock(List<Stock> stocks);
+	public void saveStock(Stock stock);
 	
 }

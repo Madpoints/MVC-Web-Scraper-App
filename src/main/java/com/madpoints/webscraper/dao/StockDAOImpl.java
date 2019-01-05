@@ -42,15 +42,11 @@ public class StockDAOImpl implements StockDAO {
 	
 
 	@Override
-	public void saveStock(List<Stock> stocks) {
+	public void saveStock(Stock stock) {
 	
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		for (Stock stock : stocks) {
-		
-			currentSession.saveOrUpdate(stock);
-		}
-		
+		currentSession.saveOrUpdate(stock);
 	}
 
 }

@@ -31,9 +31,9 @@ public class StockServiceImpl implements StockService {
 
 	@Override
 	@Transactional
-	public void saveStock(List<Stock> stocks) {
+	public void saveStock(Stock stock) {
 		
-		stockDAO.saveStock(stocks);
+		stockDAO.saveStock(stock);
 	}
 
 }
