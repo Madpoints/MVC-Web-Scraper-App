@@ -107,59 +107,59 @@ public class StockController {
 			
 		}
 		
-		listIndex = 0;
-		
-		for (WebElement stockChangeElement : stockChangeElements) {
-			
-			stocks.get(listIndex).setChange(stockChangeElement.getText());
-			listIndex++;
-			
-		}
-		
-		listIndex = 0;
-		
-		for (WebElement stockPercentChangeElement : stockPercentChangeElements) {
-			
-			stocks.get(listIndex).setPercentChange(stockPercentChangeElement.getText());
-			listIndex++;
-			
-		}
-		
-		listIndex = 0;
-		
-		for (WebElement stockVolumeElement : stockVolumeElements) {
-			
-			stocks.get(listIndex).setVolume(stockVolumeElement.getText());
-			listIndex++;
-			
-		}
-		
-		listIndex = 0;
-		
-		for (WebElement stockAvgVolumeElement : stockAvgVolumeElements) {
-			
-			stocks.get(listIndex).setAvgVolume(stockAvgVolumeElement.getText());
-			listIndex++;
-			
-		}
-		
-		listIndex = 0;
-		
-		for (WebElement stockMarketCapElement : stockMarketCapElements) {
-			
-			stocks.get(listIndex).setMarketCap(stockMarketCapElement.getText());
-			listIndex++;
-			
-		}
-		
-		listIndex = 0;
-		
-		for (WebElement stockPeRatioElement : stockPeRatioElements) {
-			
-			stocks.get(listIndex).setPeRatio(stockPeRatioElement.getText());
-			listIndex++;
-			
-		}
+//		listIndex = 0;
+//		
+//		for (WebElement stockChangeElement : stockChangeElements) {
+//			
+//			stocks.get(listIndex).setChange(stockChangeElement.getText());
+//			listIndex++;
+//			
+//		}
+//		
+//		listIndex = 0;
+//		
+//		for (WebElement stockPercentChangeElement : stockPercentChangeElements) {
+//			
+//			stocks.get(listIndex).setPercentChange(stockPercentChangeElement.getText());
+//			listIndex++;
+//			
+//		}
+//		
+//		listIndex = 0;
+//		
+//		for (WebElement stockVolumeElement : stockVolumeElements) {
+//			
+//			stocks.get(listIndex).setVolume(stockVolumeElement.getText());
+//			listIndex++;
+//			
+//		}
+//		
+//		listIndex = 0;
+//		
+//		for (WebElement stockAvgVolumeElement : stockAvgVolumeElements) {
+//			
+//			stocks.get(listIndex).setAvgVolume(stockAvgVolumeElement.getText());
+//			listIndex++;
+//			
+//		}
+//		
+//		listIndex = 0;
+//		
+//		for (WebElement stockMarketCapElement : stockMarketCapElements) {
+//			
+//			stocks.get(listIndex).setMarketCap(stockMarketCapElement.getText());
+//			listIndex++;
+//			
+//		}
+//		
+//		listIndex = 0;
+//		
+//		for (WebElement stockPeRatioElement : stockPeRatioElements) {
+//			
+//			stocks.get(listIndex).setPeRatio(stockPeRatioElement.getText());
+//			listIndex++;
+//			
+//		}
 		
 		return stocks;
 	}
