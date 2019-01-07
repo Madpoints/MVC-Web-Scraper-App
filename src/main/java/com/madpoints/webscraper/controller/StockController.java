@@ -28,14 +28,19 @@ public class StockController {
 		
 		List<Stock> stocks;
 		
-		stocks = scrapeStocks();
-		
-		for (Stock stock : stocks) {
-			
-			stockService.saveStock(stock);
-		}
-		
 		stocks = stockService.getStocks();
+		
+		if (stocks.isEmpty()) {
+			
+			stocks = scrapeStocks();
+			
+			for (Stock stock : stocks) {
+				
+				stockService.saveStock(stock);
+			}
+			
+			stocks = stockService.getStocks();
+		}
 		
 		theModel.addAttribute("stocks", stocks);
 		
