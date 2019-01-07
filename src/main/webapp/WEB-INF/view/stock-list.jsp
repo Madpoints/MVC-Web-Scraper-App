@@ -30,10 +30,17 @@
 				
 				<c:forEach var="tempStock" items="${stocks}">
 				
+					<c:url var="stockInfo" value="/stock/info">
+						<c:param name="stockId" value="${tempStock.id}" />
+					</c:url>
+									
 					<tr>
 						<td> ${tempStock.symbol} </td>
 						<td> ${tempStock.name} </td>
-						<td> ${tempStock.price} </td>			
+						<td> ${tempStock.price} </td>	
+						<td>
+							<a href="${stockInfo}">More info</a>
+						</td>			
 					</tr>
 				
 				</c:forEach>
