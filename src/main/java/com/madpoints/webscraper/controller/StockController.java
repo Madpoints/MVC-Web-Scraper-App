@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.madpoints.webscraper.entity.Stock;
 import com.madpoints.webscraper.service.StockService;
@@ -48,7 +49,9 @@ public class StockController {
 	}
 	
 	@GetMapping("/info")
-	public String getStockInfo(Stock stock, Model theModel) {
+	public String getStockInfo(@RequestParam("stockId") int stockId, Model theModel) {
+		
+		Stock stock = stockService.getStock(stockId);
 		
 		theModel.addAttribute("stock", stock);
 		
