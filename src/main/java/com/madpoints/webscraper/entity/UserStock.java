@@ -21,6 +21,9 @@ public class UserStock {
 	
 	@Column(name="stock_id")
 	private int stockId;
+	
+	@Column(name="shares")
+	private int shares;
 
 	public UserStock() {
 	}
@@ -47,6 +50,14 @@ public class UserStock {
 
 	public void setStockId(int stockId) {
 		this.stockId = stockId;
+	}
+
+	public int getShares() {
+		return shares;
+	}
+
+	public void setShares(int shares) {
+		this.shares = shares;
 	}
 	
 	
