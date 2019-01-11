@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.madpoints.webscraper.entity.Stock;
 
 @Repository
-public class UserStockImpl implements UserStockDAO {
+public class UserStockDAOImpl implements UserStockDAO {
 	
 	@Autowired 
 	private SessionFactory sessionFactory;
