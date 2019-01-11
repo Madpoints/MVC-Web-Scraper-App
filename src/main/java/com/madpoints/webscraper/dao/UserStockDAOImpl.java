@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.madpoints.webscraper.entity.Stock;
+import com.madpoints.webscraper.entity.UserStock;
 
 @Repository
 public class UserStockDAOImpl implements UserStockDAO {
@@ -21,6 +22,14 @@ public class UserStockDAOImpl implements UserStockDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		return null;
+	}
+
+	@Override
+	public void saveUserStock(UserStock userStock) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.saveOrUpdate(userStock);
 	}
 
 }
