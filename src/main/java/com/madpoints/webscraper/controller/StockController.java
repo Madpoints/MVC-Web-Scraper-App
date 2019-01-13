@@ -183,13 +183,13 @@ public class StockController {
 		return stocks;
 	}
 	
-//	private void buyStock(Stock stock) {
-//		
-//	}
-//	
-//	private void sellStock(Stock stock) {
-//		
-//	}
+	private void buyStock(int userId, int stockId, int shares) {
+		
+	}
+	
+	private void sellStock(int userId, int stockId, int shares) {
+		
+	}
 	
 
 
