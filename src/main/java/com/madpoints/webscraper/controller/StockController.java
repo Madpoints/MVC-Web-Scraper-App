@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.madpoints.webscraper.entity.Stock;
+import com.madpoints.webscraper.entity.UserStock;
 import com.madpoints.webscraper.service.StockService;
 import com.madpoints.webscraper.service.UserStockService;
 
@@ -183,14 +184,11 @@ public class StockController {
 		return stocks;
 	}
 	
-	private void buyStock(int userId, int stockId, int shares) {
+	private void stockTransaction(UserStock userStock) {
+		
+		UserStock tempUserStock = userStockService.getUserStocks(userStock.getId());
+		
 		
 	}
 	
-	private void sellStock(int userId, int stockId, int shares) {
-		
-	}
-	
-
-
 }
