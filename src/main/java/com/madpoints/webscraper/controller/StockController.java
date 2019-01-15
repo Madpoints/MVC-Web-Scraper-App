@@ -186,7 +186,7 @@ public class StockController {
 	
 	private void stockTransaction(UserStock userStock) {
 		
-		UserStock tempUserStock = userStockService.getUserStocks(userStock.getId());
+		UserStock tempUserStock = userStockService.getUserStock(userStock.getId());
 		
 		
 	}
