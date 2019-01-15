@@ -17,7 +17,7 @@ public class UserStockDAOImpl implements UserStockDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public UserStock getUserStock(int userId) {
+	public UserStock getUserStock(int id) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		

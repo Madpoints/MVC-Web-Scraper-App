@@ -15,9 +15,9 @@ public class UserStockServiceImpl implements UserStockService {
 
 	@Override
 	@Transactional
-	public UserStock getUserStock(int userId) {
+	public UserStock getUserStock(int id) {
 
-		return userStockDAO.getUserStock(userId);
+		return userStockDAO.getUserStock(id);
 	}
 
 	@Override
