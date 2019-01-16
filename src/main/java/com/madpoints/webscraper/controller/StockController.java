@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.madpoints.webscraper.entity.Stock;
-import com.madpoints.webscraper.entity.UserStock;
+import com.madpoints.webscraper.entity.UserShare;
 import com.madpoints.webscraper.service.StockService;
-import com.madpoints.webscraper.service.UserStockService;
+import com.madpoints.webscraper.service.UserShareService;
 
 @Controller
 @RequestMapping("/stock")
@@ -27,7 +27,7 @@ public class StockController {
 	private StockService stockService;
 	
 	@Autowired
-	private UserStockService userStockService;
+	private UserShareService userShareService;
 	
 	@GetMapping("/list")
 	public String getStocks(Model theModel) {
@@ -184,11 +184,9 @@ public class StockController {
 		return stocks;
 	}
 	
-	private void stockTransaction(UserStock userStock) {
-		
-		UserStock tempUserStock = userStockService.getUserStock(userStock.getId());
-		
-		
-	}
+//	private void stockTransaction(UserShare userShare) {
+//		
+//		
+//	}
 	
 }

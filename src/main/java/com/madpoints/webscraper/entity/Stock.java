@@ -39,7 +39,7 @@ public class Stock {
 	@OneToMany(mappedBy="user_stock",
 			cascade={CascadeType.PERSIST, CascadeType.MERGE,
 					CascadeType.DETACH, CascadeType.REFRESH})
-	private List<UserStock> userStocks;
+	private List<UserShare> userStocks;
 	
 	public Stock() {
 	}

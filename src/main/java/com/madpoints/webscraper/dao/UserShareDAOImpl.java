@@ -1,23 +1,20 @@
 package com.madpoints.webscraper.dao;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.madpoints.webscraper.entity.Stock;
-import com.madpoints.webscraper.entity.UserStock;
+import com.madpoints.webscraper.entity.UserShare;
 
 @Repository
-public class UserStockDAOImpl implements UserStockDAO {
+public class UserShareDAOImpl implements UserShareDAO {
 	
 	@Autowired 
 	private SessionFactory sessionFactory;
 
 	@Override
-	public UserStock getUserStock(int id) {
+	public UserShare getUserShare(int id) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -25,11 +22,11 @@ public class UserStockDAOImpl implements UserStockDAO {
 	}
 
 	@Override
-	public void saveUserStock(UserStock userStock) {
+	public void saveUserShare(UserShare userShare) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		currentSession.saveOrUpdate(userStock);
+		currentSession.saveOrUpdate(userShare);
 	}
 
 }

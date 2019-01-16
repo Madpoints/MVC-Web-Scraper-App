@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user_stock")
-public class UserStock {
+@Table(name="user_share")
+public class UserShare {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class UserStock {
 	@Column(name="shares")
 	private int shares;
 
-	public UserStock() {
+	public UserShare() {
 	}
 
 	public int getId() {
@@ -41,21 +41,12 @@ public class UserStock {
 		this.userId = userId;
 	}
 
-	public int getStockId() {
-		return stockId;
-	}
-
-	public void setStockId(int stockId) {
-		this.stockId = stockId;
-	}
-
 	public int getShares() {
 		return shares;
 	}
 
 	public void setShares(int shares) {
 		this.shares = shares;
-	}
-	
+	}	
 	
 }
