@@ -19,9 +19,6 @@ public class UserStock {
 	@Column(name="user_id")
 	private int userId;
 	
-	@Column(name="stock_id")
-	private int stockId;
-	
 	@Column(name="shares")
 	private int shares;
 
