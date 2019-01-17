@@ -1,5 +1,6 @@
 package com.madpoints.webscraper.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -109,6 +110,16 @@ public class User {
 
 	public void setStocks(List<Stock> stocks) {
 		this.stocks = stocks;
+	}
+	
+	public void addStock(Stock tempStock) {
+		
+		if (stocks == null) {
+			
+			stocks = new ArrayList<>();
+		}
+		
+		stocks.add(tempStock);
 	}
 	
 }
