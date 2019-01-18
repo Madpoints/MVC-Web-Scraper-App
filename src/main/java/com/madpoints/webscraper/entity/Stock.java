@@ -1,5 +1,6 @@
 package com.madpoints.webscraper.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -36,10 +37,10 @@ public class Stock {
 //	private String marketCap;
 //	private String peRatio;
 	
-	@OneToMany(mappedBy="user_stock",
+	@OneToMany(mappedBy="stock",
 			cascade={CascadeType.PERSIST, CascadeType.MERGE,
 					CascadeType.DETACH, CascadeType.REFRESH})
-	private List<UserShare> userStocks;
+	private List<UserShare> userShares;
 	
 	public Stock() {
 	}
@@ -123,12 +124,16 @@ public class Stock {
 //	public void setPeRatio(String peRatio) {
 //		this.peRatio = peRatio;
 //	}
-//
-//	@Override
-//	public String toString() {
-//		return "Stock [id=" + id + ", symbol=" + symbol + ", name=" + name + ", price=" + price + ", change=" + change
-//				+ ", percentChange=" + percentChange + ", volume=" + volume + ", avgVolume=" + avgVolume
-//				+ ", marketCap=" + marketCap + ", peRatio=" + peRatio + "]";
-//	}
 
+	public void addUserShare(UserShare tempUserShare) {
+		
+		if (userShares == null) {
+			
+			userShares = new ArrayList<>();
+		}
+		
+		userShares.add(tempUserShare);
+		tempUserShare.setStock(this);
+	}
+	
 }
