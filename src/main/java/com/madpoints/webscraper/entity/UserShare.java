@@ -1,10 +1,13 @@
 package com.madpoints.webscraper.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,11 @@ public class UserShare {
 	
 	@Column(name="shares")
 	private int shares;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="stock_id")
+	private Stock stock;
 
 	public UserShare() {
 	}
@@ -47,6 +55,14 @@ public class UserShare {
 
 	public void setShares(int shares) {
 		this.shares = shares;
+	}
+
+	public Stock getStock() {
+		return stock;
+	}
+
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}	
 	
 }
