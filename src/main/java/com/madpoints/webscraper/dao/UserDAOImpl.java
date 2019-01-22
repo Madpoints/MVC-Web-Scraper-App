@@ -60,21 +60,6 @@ public class UserDAOImpl implements UserDAO {
 		return (User) results.get(0);
 	}
 
-	
-//	@Override
-//	public int loginUser(Login login) {
-//		
-//		User loggedInUser = getUser(login.getUserName());
-//		
-//		if (loggedInUser ==  null || 
-//			!loggedInUser.getPassword().equals(login.getPassword())) {
-//			
-//			return -1;
-//		}
-//		
-//		return loggedInUser.getId();	
-//	}
-
 	@Override
 	public boolean registerUser(User user) {
 		
