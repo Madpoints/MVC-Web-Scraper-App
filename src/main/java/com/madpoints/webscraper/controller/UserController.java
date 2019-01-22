@@ -19,9 +19,9 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/login")
-	public String loginUser(@ModelAttribute("login") Login loginInfo, RedirectAttributes redirectAtt) {
+	public String loginUser(@ModelAttribute("login") Login login, RedirectAttributes redirectAtt) {
 		
-		int userId = loginUser(loginInfo);
+		int userId = login(login);
 
 		if (userId < 0) {
 			
@@ -54,7 +54,7 @@ public class UserController {
 		return "redirect:/login";
 	}
 	
-	private int loginUser(Login login) {
+	private int login(Login login) {
 		
 		User loggedInUser = userService.getUser(login.getUserName());
 		
