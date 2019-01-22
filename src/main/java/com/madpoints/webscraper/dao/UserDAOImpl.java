@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.madpoints.webscraper.entity.Login;
 import com.madpoints.webscraper.entity.User;
 
 @Repository
@@ -62,19 +61,19 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	
-	@Override
-	public int loginUser(Login login) {
-		
-		User loggedInUser = getUser(login.getUserName());
-		
-		if (loggedInUser ==  null || 
-			!loggedInUser.getPassword().equals(login.getPassword())) {
-			
-			return -1;
-		}
-		
-		return loggedInUser.getId();	
-	}
+//	@Override
+//	public int loginUser(Login login) {
+//		
+//		User loggedInUser = getUser(login.getUserName());
+//		
+//		if (loggedInUser ==  null || 
+//			!loggedInUser.getPassword().equals(login.getPassword())) {
+//			
+//			return -1;
+//		}
+//		
+//		return loggedInUser.getId();	
+//	}
 
 	@Override
 	public boolean registerUser(User user) {

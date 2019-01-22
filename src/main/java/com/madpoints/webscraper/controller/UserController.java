@@ -21,7 +21,7 @@ public class UserController {
 	@PostMapping("/login")
 	public String loginUser(@ModelAttribute("login") Login loginInfo, RedirectAttributes redirectAtt) {
 		
-		int userId = userService.loginUser(loginInfo);
+		int userId = loginUser(loginInfo);
 
 		if (userId < 0) {
 			
@@ -52,6 +52,19 @@ public class UserController {
 		userService.deleteUser(userId);
 		
 		return "redirect:/login";
+	}
+	
+	private int loginUser(Login login) {
+		
+		User loggedInUser = userService.getUser(login.getUserName());
+		
+		if (loggedInUser ==  null || 
+			!loggedInUser.getPassword().equals(login.getPassword())) {
+			
+			return -1;
+		}
+		
+		return loggedInUser.getId();	
 	}
 	
 
