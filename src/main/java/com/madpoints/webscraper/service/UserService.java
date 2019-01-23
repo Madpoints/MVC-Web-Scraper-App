@@ -10,9 +10,10 @@ public interface UserService {
 
 	public User getUser(int userId);
 	
-	public User getUser(String userName);
+	@SuppressWarnings("rawtypes")
+	public List getUser(String userName);
 	
-	public boolean registerUser(User theUser);
+	public void saveOrUpdateUser(User user);
 	
 	public void deleteUser(int userId);
 	

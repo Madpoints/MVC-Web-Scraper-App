@@ -29,8 +29,10 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getUser(userId);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
-	public User getUser(String userName) {
+	@Transactional
+	public List getUser(String userName) {
 		
 		return userDAO.getUser(userName);
 	}
@@ -38,9 +40,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public boolean registerUser(User user) {
+	public void saveOrUpdateUser(User user) {
 		
-		 return userDAO.registerUser(user);
+		 userDAO.saveOrUpdateUser(user);
 	}
 
 	@Override

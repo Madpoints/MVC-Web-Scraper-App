@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	@SuppressWarnings("rawtypes")
 	@Override
-	public User getUser(String userName) {
+	public List getUser(String userName) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -50,29 +50,15 @@ public class UserDAOImpl implements UserDAO {
 		
 		theQuery.setParameter("userName", userName);
 		
-		List results = theQuery.getResultList();
-		
-		if (results.isEmpty()) {
-			
-			return null;
-		}
-		
-		return (User) results.get(0);
+		return theQuery.getResultList();
 	}
 
 	@Override
-	public boolean registerUser(User user) {
-		
-		if (getUser(user.getUserName()) != null) {
-			
-			return false;
-		}
-		
+	public void saveOrUpdateUser(User user) {
+
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		currentSession.saveOrUpdate(user);
-		
-		return true;	
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -81,7 +67,6 @@ public class UserDAOImpl implements UserDAO {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 
-		// delete object with primary key
 		Query theQuery = 
 				currentSession.createQuery("delete from User where id=:userId");
 		theQuery.setParameter("userId", userId);
