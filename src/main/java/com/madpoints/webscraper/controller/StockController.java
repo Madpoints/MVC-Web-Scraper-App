@@ -36,14 +36,13 @@ public class StockController {
 		
 		if (stocks.isEmpty()) {
 			
-			stocks = scrapeStocks();
+			stocks = scrapeAndSetStocks();
 			
 			for (Stock stock : stocks) {
 				
 				stockService.saveStock(stock);
 			}
-			
-			stocks = stockService.getStocks();
+		
 		}
 		
 		theModel.addAttribute("stocks", stocks);
@@ -61,25 +60,17 @@ public class StockController {
 		return "stock-info";
 	}
 	
-	private static List<Stock> scrapeStocks() {
+	private static List<Stock> scrapeAndSetStocks() {
 		
 		// path to chrome webdriver exe
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\John\\careerDevs\\Selenium\\chromedriver.exe");
+		
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.finance.yahoo.com/most-active");
 		
-		List<Stock> stocks = setStocks(driver);
-		
-		driver.quit();
-		
-		return stocks;		
-	}
-	
-	private static List<Stock> setStocks(WebDriver driver) {
-		
-		List<WebElement> stockSymbolElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Symbol']"));
-		List<WebElement> stockNameElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Name']"));
-		List<WebElement> stockPriceElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Price (Intraday)']"));
+		List<WebElement> stockSymbolElements = driver.findElements(By.xpath("//table[@data-reactid='42']//td[@aria-label='Symbol']"));
+		List<WebElement> stockNameElements = driver.findElements(By.xpath("//table[@data-reactid='42']//td[@aria-label='Name']"));
+		List<WebElement> stockPriceElements = driver.findElements(By.xpath("//table[@data-reactid='42']//td[@aria-label='Price (Intraday)']"));
 //		List<WebElement> stockChangeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='Change']"));
 		// escape % char?
 //		List<WebElement> stockPercentChangeElements = driver.findElements(By.xpath("//table[@data-reactid='73']//td[@aria-label='% Change']"));
@@ -90,101 +81,30 @@ public class StockController {
 
 		List<Stock> stocks = new ArrayList<Stock>();
 		
-		int size = stockSymbolElements.size();
-		int listIndex = 0;
-		
-		for (int index = 0; index < size; index++) {
-			
-			Stock tempStock = new Stock();
-			stocks.add(index, tempStock);
-			
-		}
+		int index = 0;
 		
 		for (WebElement stockSymbolElement : stockSymbolElements) {
 			
-			stocks.get(listIndex).setSymbol(stockSymbolElement.getText());
-			listIndex++;
+			Stock tempStock = new Stock();
 			
+			stocks.add(index, tempStock);
+			
+			stocks.get(index).setSymbol(stockSymbolElement.getText());
+			stocks.get(index).setName(stockNameElements.get(index).getText());
+			stocks.get(index).setPrice(stockPriceElements.get(index).getText());
+//			stocks.get(index).setChange(stockChangeElements.get(index).getText());
+//			stocks.get(index).setPercentChange(stockPercentChangeElements.get(index).getText());
+//			stocks.get(index).setVolume(stockVolumeElements.get(index).getText());
+//			stocks.get(index).setAvgVolume(stockAvgVolumeElements.get(index).getText());
+//			stocks.get(index).setMarketCap(stockMarketCapElements.get(index).getText());
+//			stocks.get(index).setPeRatio(stockPeRatioElements.get(index).getText());
+			
+			index++;	
 		}
 		
-		listIndex = 0;
+		driver.quit();
 		
-		for (WebElement stockNameElement : stockNameElements) {
-			
-			stocks.get(listIndex).setName(stockNameElement.getText());
-			listIndex++;
-			
-		}
-		
-		listIndex = 0;
-		
-		for (WebElement stockPriceElement : stockPriceElements) {
-			
-			stocks.get(listIndex).setPrice(stockPriceElement.getText());
-			listIndex++;
-			
-		}
-		
-//		listIndex = 0;
-//		
-//		for (WebElement stockChangeElement : stockChangeElements) {
-//			
-//			stocks.get(listIndex).setChange(stockChangeElement.getText());
-//			listIndex++;
-//			
-//		}
-//		
-//		listIndex = 0;
-//		
-//		for (WebElement stockPercentChangeElement : stockPercentChangeElements) {
-//			
-//			stocks.get(listIndex).setPercentChange(stockPercentChangeElement.getText());
-//			listIndex++;
-//			
-//		}
-//		
-//		listIndex = 0;
-//		
-//		for (WebElement stockVolumeElement : stockVolumeElements) {
-//			
-//			stocks.get(listIndex).setVolume(stockVolumeElement.getText());
-//			listIndex++;
-//			
-//		}
-//		
-//		listIndex = 0;
-//		
-//		for (WebElement stockAvgVolumeElement : stockAvgVolumeElements) {
-//			
-//			stocks.get(listIndex).setAvgVolume(stockAvgVolumeElement.getText());
-//			listIndex++;
-//			
-//		}
-//		
-//		listIndex = 0;
-//		
-//		for (WebElement stockMarketCapElement : stockMarketCapElements) {
-//			
-//			stocks.get(listIndex).setMarketCap(stockMarketCapElement.getText());
-//			listIndex++;
-//			
-//		}
-//		
-//		listIndex = 0;
-//		
-//		for (WebElement stockPeRatioElement : stockPeRatioElements) {
-//			
-//			stocks.get(listIndex).setPeRatio(stockPeRatioElement.getText());
-//			listIndex++;
-//			
-//		}
-		
-		return stocks;
+		return stocks;		
 	}
-	
-//	private void stockTransaction(UserShare userShare) {
-//		
-//		
-//	}
 	
 }
