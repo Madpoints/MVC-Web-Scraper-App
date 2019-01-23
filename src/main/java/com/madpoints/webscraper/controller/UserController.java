@@ -1,9 +1,13 @@
 package com.madpoints.webscraper.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -18,17 +22,25 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@SuppressWarnings("rawtypes")
 	@PostMapping("/login")
-	public String loginUser(@ModelAttribute("login") Login login, RedirectAttributes redirectAtt) {
+	public String login(@ModelAttribute("login") Login login, RedirectAttributes redirectAtt) {
 		
-		int userId = login(login);
-
-		if (userId < 0) {
+		List results = userService.getUser(login.getUserName());
+		
+		if (results.isEmpty()) {
 			
 			return "redirect:/login";
 		}
 		
-		redirectAtt.addAttribute("userId", userId);
+		User user = (User) results.get(0);
+		
+		if (!user.getPassword().equals(login.getPassword())) {
+			
+			return "redirect:/login";
+		}
+		
+		redirectAtt.addAttribute("userId", user.getId());
 		
 		return "redirect:/home/{userId}";
 	}
@@ -36,14 +48,27 @@ public class UserController {
 	@PostMapping("/register")
 	public String registerUser(@ModelAttribute("user") User newUser, RedirectAttributes redirectAtt) {
 		
-		if (!userService.registerUser(newUser)) {
-		
+		if (!userService.getUser(newUser.getUserName()).isEmpty()) {
+			
 			return "redirect:/register";
 		}
+		
+		userService.saveOrUpdateUser(newUser);
 		
 		redirectAtt.addAttribute("userId", newUser.getId());
 		
 		return "redirect:/home/{userId}";
+	}
+	
+	@GetMapping("/home/{userId}")
+	public String displayHome(@PathVariable("userId") int userId,
+								Model theModel) {
+		
+		User theUser = userService.getUser(userId);
+		
+		theModel.addAttribute("theUser", theUser);
+		
+		return "home";
 	}
 	
 	@GetMapping("/delete")
@@ -53,19 +78,5 @@ public class UserController {
 		
 		return "redirect:/login";
 	}
-	
-	private int login(Login login) {
-		
-		User loggedInUser = userService.getUser(login.getUserName());
-		
-		if (loggedInUser ==  null || 
-			!loggedInUser.getPassword().equals(login.getPassword())) {
-			
-			return -1;
-		}
-		
-		return loggedInUser.getId();	
-	}
-	
 
 }
