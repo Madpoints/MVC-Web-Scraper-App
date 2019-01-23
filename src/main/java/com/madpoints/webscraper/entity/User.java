@@ -1,15 +1,10 @@
 package com.madpoints.webscraper.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,10 +34,10 @@ public class User {
 	@Column(name="wallet")
 	private String wallet = "10000";
 	
-	@OneToMany(mappedBy="user",
-			cascade={CascadeType.PERSIST, CascadeType.MERGE,
-					CascadeType.DETACH, CascadeType.REFRESH})
-	private List<Stock> stocks;
+//	@OneToMany(mappedBy="user",
+//			cascade={CascadeType.PERSIST, CascadeType.MERGE,
+//					CascadeType.DETACH, CascadeType.REFRESH})
+//	private List<Stock> stocks;
 
 	
 	public User() {
@@ -104,22 +99,22 @@ public class User {
 		this.wallet = wallet;
 	}
 
-	public List<Stock> getStocks() {
-		return stocks;
-	}
-
-	public void setStocks(List<Stock> stocks) {
-		this.stocks = stocks;
-	}
-	
-	public void addStock(Stock tempStock) {
-		
-		if (stocks == null) {
-			
-			stocks = new ArrayList<>();
-		}
-		
-		stocks.add(tempStock);
-	}
+//	public List<Stock> getStocks() {
+//		return stocks;
+//	}
+//
+//	public void setStocks(List<Stock> stocks) {
+//		this.stocks = stocks;
+//	}
+//	
+//	public void addStock(Stock tempStock) {
+//		
+//		if (stocks == null) {
+//			
+//			stocks = new ArrayList<>();
+//		}
+//		
+//		stocks.add(tempStock);
+//	}
 	
 }
