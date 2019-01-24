@@ -1,10 +1,13 @@
 package com.madpoints.webscraper.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +34,11 @@ public class Stock {
 //	private String avgVolume;
 //	private String marketCap;
 //	private String peRatio;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="user_id")
+	private User user;
 	
 //	@OneToMany(mappedBy="stock",
 //			cascade={CascadeType.PERSIST, CascadeType.MERGE,
@@ -70,6 +78,14 @@ public class Stock {
 
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 //	public String getChange() {
