@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -43,6 +45,9 @@ public class User {
 	@ManyToMany(fetch=FetchType.LAZY,
 			   cascade={CascadeType.PERSIST, CascadeType.MERGE,
 						CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinTable(name="user_stock",
+	   joinColumns=@JoinColumn(name="user_id"),
+	   inverseJoinColumns=@JoinColumn(name="stock_id"))
 	private List<Stock> stocks;
 	
 	public User() {
