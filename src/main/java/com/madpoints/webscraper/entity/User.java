@@ -6,10 +6,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,11 +40,10 @@ public class User {
 	@Column(name="wallet")
 	private String wallet = "10000";
 	
-	@OneToMany(mappedBy="user",
-			cascade={CascadeType.PERSIST, CascadeType.MERGE,
-					CascadeType.DETACH, CascadeType.REFRESH})
+	@ManyToMany(fetch=FetchType.LAZY,
+			   cascade={CascadeType.PERSIST, CascadeType.MERGE,
+						CascadeType.DETACH, CascadeType.REFRESH})
 	private List<Stock> stocks;
-
 	
 	public User() {
 	}
@@ -120,7 +120,6 @@ public class User {
 		}
 		
 		stocks.add(stock);
-		stock.setUser(this);
 	}
-	
+
 }
