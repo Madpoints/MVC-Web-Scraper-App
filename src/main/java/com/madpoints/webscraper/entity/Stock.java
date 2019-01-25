@@ -1,13 +1,17 @@
 package com.madpoints.webscraper.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,15 +39,13 @@ public class Stock {
 //	private String marketCap;
 //	private String peRatio;
 	
-	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name="user_id")
-	private User user;
-	
-//	@OneToMany(mappedBy="stock",
-//			cascade={CascadeType.PERSIST, CascadeType.MERGE,
-//					CascadeType.DETACH, CascadeType.REFRESH})
-//	private List<UserShare> userShares;
+	@ManyToMany(fetch=FetchType.LAZY,
+			   cascade={CascadeType.PERSIST, CascadeType.MERGE,
+						CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinTable(name="user_stock",
+			   joinColumns=@JoinColumn(name="stock_id"),
+			   inverseJoinColumns=@JoinColumn(name="user_id"))
+	private List<User> users;
 	
 	public Stock() {
 	}
@@ -80,14 +82,14 @@ public class Stock {
 		this.price = price;
 	}
 
-	public User getUser() {
-		return user;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
-
+	
 //	public String getChange() {
 //		return change;
 //	}
