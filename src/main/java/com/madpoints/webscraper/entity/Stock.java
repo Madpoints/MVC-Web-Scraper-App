@@ -137,16 +137,5 @@ public class Stock {
 //	public void setPeRatio(String peRatio) {
 //		this.peRatio = peRatio;
 //	}
-
-//	public void addUserShare(UserShare tempUserShare) {
-//		
-//		if (userShares == null) {
-//			
-//			userShares = new ArrayList<>();
-//		}
-//		
-//		userShares.add(tempUserShare);
-//		tempUserShare.setStock(this);
-//	}
 	
 }
