@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -49,6 +50,13 @@ public class User {
 	   joinColumns=@JoinColumn(name="user_id"),
 	   inverseJoinColumns=@JoinColumn(name="stock_id"))
 	private List<Stock> stocks;
+	
+	@OneToMany(fetch=FetchType.LAZY,
+			   mappedBy="user",
+			   cascade={CascadeType.PERSIST, CascadeType.MERGE,
+					    CascadeType.DETACH, CascadeType.REFRESH})
+	private List<Share> shares;
+
 	
 	public User() {
 	}
@@ -125,6 +133,24 @@ public class User {
 		}
 		
 		stocks.add(stock);
+	}
+	
+	public List<Share> getShares() {
+		return shares;
+	}
+
+	public void setShares(List<Share> shares) {
+		this.shares = shares;
+	}
+
+	public void addShare(Share share) {
+		
+		if (shares == null) {
+			
+			shares = new ArrayList<>();
+		}
+		
+		shares.add(share);
 	}
 
 }
