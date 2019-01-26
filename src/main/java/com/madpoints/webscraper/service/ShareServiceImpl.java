@@ -4,25 +4,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.madpoints.webscraper.dao.UserShareDAO;
-import com.madpoints.webscraper.entity.UserShare;
+import com.madpoints.webscraper.dao.ShareDAO;
+import com.madpoints.webscraper.entity.Share;
 
 @Service
-public class UserShareServiceImpl implements UserShareService {
+public class ShareServiceImpl implements ShareService {
 	
 	@Autowired
-	UserShareDAO userStockDAO;
+	ShareDAO userStockDAO;
 
 	@Override
 	@Transactional
-	public UserShare getUserShare(int id) {
+	public Share getUserShare(int id) {
 
 		return userStockDAO.getUserShare(id);
 	}
 
 	@Override
 	@Transactional
-	public void saveUserShare(UserShare userShare) {
+	public void saveUserShare(Share userShare) {
 		
 		userStockDAO.saveUserShare(userShare);
 	}

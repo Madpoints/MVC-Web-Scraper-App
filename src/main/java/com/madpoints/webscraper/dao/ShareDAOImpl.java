@@ -5,16 +5,16 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.madpoints.webscraper.entity.UserShare;
+import com.madpoints.webscraper.entity.Share;
 
 @Repository
-public class UserShareDAOImpl implements UserShareDAO {
+public class ShareDAOImpl implements ShareDAO {
 	
 	@Autowired 
 	private SessionFactory sessionFactory;
 
 	@Override
-	public UserShare getUserShare(int id) {
+	public Share getUserShare(int id) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -22,7 +22,7 @@ public class UserShareDAOImpl implements UserShareDAO {
 	}
 
 	@Override
-	public void saveUserShare(UserShare userShare) {
+	public void saveUserShare(Share userShare) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
