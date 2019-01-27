@@ -67,6 +67,7 @@ public class UserController {
 		User theUser = userService.getUser(userId);
 		
 		theModel.addAttribute("theUser", theUser);
+		theModel.addAttribute("stocks", theUser.getStocks());
 		
 		return "home";
 	}
