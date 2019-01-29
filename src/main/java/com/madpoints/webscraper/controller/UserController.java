@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.madpoints.webscraper.entity.Login;
+import com.madpoints.webscraper.entity.Share;
+import com.madpoints.webscraper.entity.Stock;
 import com.madpoints.webscraper.entity.User;
 import com.madpoints.webscraper.service.UserService;
 
@@ -78,6 +80,13 @@ public class UserController {
 		userService.deleteUser(userId);
 		
 		return "redirect:/login";
+	}
+	
+	private static void stockTransaction(User user, Stock stock, Share share) {
+		
+		user.addStock(stock);
+		
+		
 	}
 
 }
