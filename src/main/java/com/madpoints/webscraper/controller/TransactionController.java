@@ -22,18 +22,20 @@ public class TransactionController {
 	@Autowired
 	private ShareService shareService;
 	
-	private static void stockTransaction(User user, Stock stock, Share share) {
+	
+	public void stockTransaction(User user, Stock stock, Share share) {
 		
 		user.addStock(stock);
 		
 	}
 	
-	private static void stockTrade(User userA, User userB, Stock stock, Share share) {
+	public void stockTrade(User userA, User userB, Stock stock, Share share) {
 		
 		userA.getStocks().remove(stock);
 		userB.getStocks().add(stock);
 		
-		userService
+		userService.saveOrUpdateUser(userA);
+		userService.saveOrUpdateUser(userB);
 	}
 	
 
