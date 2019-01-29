@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.madpoints.webscraper.entity.Share;
 import com.madpoints.webscraper.entity.Stock;
 import com.madpoints.webscraper.entity.User;
+import com.madpoints.webscraper.service.ShareService;
 import com.madpoints.webscraper.service.StockService;
 
 @Controller
@@ -26,8 +27,8 @@ public class StockController {
 	@Autowired
 	private StockService stockService;
 	
-//	@Autowired
-//	private UserShareService userShareService;
+	@Autowired
+	private ShareService shareService;
 	
 	@GetMapping("/list")
 	public String getStocks(Model theModel) {
