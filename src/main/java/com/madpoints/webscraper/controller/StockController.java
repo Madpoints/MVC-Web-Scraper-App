@@ -27,9 +27,6 @@ public class StockController {
 	@Autowired
 	private StockService stockService;
 	
-	@Autowired
-	private ShareService shareService;
-	
 	@GetMapping("/list")
 	public String getStocks(Model theModel) {
 		
@@ -61,12 +58,6 @@ public class StockController {
 		theModel.addAttribute("stock", stock);
 		
 		return "stock-info";
-	}
-	
-	private static void stockTransaction(User user, Stock stock, Share share) {
-		
-		user.addStock(stock);
-		
 	}
 	
 	private static List<Stock> scrapeAndSetStocks() {
