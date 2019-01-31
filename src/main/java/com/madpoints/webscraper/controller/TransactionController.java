@@ -26,7 +26,9 @@ public class TransactionController {
 	public void stockTransaction(User user, Stock stock, Share share) {
 		
 		user.addStock(stock);
+		user.addShare(share);
 		
+		userService.saveOrUpdateUser(user);
 	}
 	
 	public void stockTrade(User userA, User userB, Stock stock, Share share) {
