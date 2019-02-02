@@ -34,12 +34,19 @@
 						<c:param name="stockId" value="${tempStock.id}" />
 					</c:url>
 									
+					<c:url var="stockTransaction" value="/stock/buy">
+						<c:param name="stockId" value="${tempStock.id}" />
+					</c:url>
+									
 					<tr>
 						<td> ${tempStock.symbol} </td>
 						<td> ${tempStock.name} </td>
 						<td> ${tempStock.price} </td>	
 						<td>
 							<a href="${stockInfo}">More info</a>
+						</td>		
+						<td>
+							<a href="${stockTransaction}">Buy</a>
 						</td>			
 					</tr>
 				
