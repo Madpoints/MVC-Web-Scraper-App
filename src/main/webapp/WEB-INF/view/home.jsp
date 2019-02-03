@@ -43,6 +43,10 @@
 					<c:url var="stockInfo" value="/stock/info">
 						<c:param name="stockId" value="${tempStock.id}" />
 					</c:url>
+					
+					<c:url var="buyStock" value="/stock/buy">
+						<c:param name="stockId" value="${tempStock.id}" />
+					</c:url>
 									
 					<tr>
 						<td> ${tempStock.symbol} </td>
@@ -50,7 +54,10 @@
 						<td> ${tempStock.price} </td>	
 						<td>
 							<a href="${stockInfo}">More info</a>
-						</td>			
+						</td>	
+						<td>
+							<a href="${sellStock}">Sell</a>
+						</td>				
 					</tr>
 				
 				</c:forEach>
