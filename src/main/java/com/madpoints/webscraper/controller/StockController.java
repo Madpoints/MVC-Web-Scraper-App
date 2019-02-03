@@ -66,6 +66,12 @@ public class StockController {
 		return null;
 	}
 	
+	@GetMapping("/sell")
+	public String sellStock() {
+		
+		return null;
+	}
+	
 	private static List<Stock> scrapeAndSetStocks() {
 		
 		// path to chrome webdriver exe
