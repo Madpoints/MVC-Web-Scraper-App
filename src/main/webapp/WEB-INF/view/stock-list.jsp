@@ -34,7 +34,7 @@
 						<c:param name="stockId" value="${tempStock.id}" />
 					</c:url>
 									
-					<c:url var="stockTransaction" value="/stock/buy">
+					<c:url var="buyStock" value="/stock/buy">
 						<c:param name="stockId" value="${tempStock.id}" />
 					</c:url>
 									
@@ -46,7 +46,7 @@
 							<a href="${stockInfo}">More info</a>
 						</td>		
 						<td>
-							<a href="${stockTransaction}">Buy</a>
+							<a href="${buyStock}">Buy</a>
 						</td>			
 					</tr>
 				
