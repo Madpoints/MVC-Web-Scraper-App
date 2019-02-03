@@ -61,13 +61,21 @@ public class StockController {
 	}
 	
 	@GetMapping("/buy")
-	public String buyStock() {
+	public String buyStock(@RequestParam("stockId") int stockId, Model theModel) {
+		
+		Stock stock = stockService.getStock(stockId);
+		
+		theModel.addAttribute("stock", stock);
 		
 		return null;
 	}
 	
 	@GetMapping("/sell")
-	public String sellStock() {
+	public String sellStock(@RequestParam("stockId") int stockId, Model theModel) {
+		
+		Stock stock = stockService.getStock(stockId);
+		
+		theModel.addAttribute("stock", stock);
 		
 		return null;
 	}
