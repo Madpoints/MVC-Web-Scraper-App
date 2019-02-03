@@ -2,6 +2,7 @@ package com.madpoints.webscraper.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.madpoints.webscraper.entity.Share;
 import com.madpoints.webscraper.entity.Stock;
@@ -22,6 +23,17 @@ public class TransactionController {
 	@Autowired
 	private ShareService shareService;
 	
+	@PostMapping("/buy")
+	public String buyStock() {
+		
+		return "home";
+	}
+	
+	@PostMapping("/sell")
+	public String sellStock() {
+		
+		return "home";
+	}
 	
 	public void stockTransaction(User user, Stock stock, Share share) {
 		
