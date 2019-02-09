@@ -26,7 +26,7 @@ public class TransactionController {
 	@PostMapping("/buy")
 	public String buyStock(Share share) {
 		
-		
+		stockTransaction(share);
 		
 		return "home";
 	}
