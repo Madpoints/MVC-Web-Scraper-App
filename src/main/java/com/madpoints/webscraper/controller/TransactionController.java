@@ -24,7 +24,9 @@ public class TransactionController {
 	private ShareService shareService;
 	
 	@PostMapping("/buy")
-	public String buyStock() {
+	public String buyStock(Share share) {
+		
+		
 		
 		return "home";
 	}
@@ -35,12 +37,9 @@ public class TransactionController {
 		return "home";
 	}
 	
-	public void stockTransaction(User user, Stock stock, Share share) {
+	public void stockTransaction(Share share) {
 		
-		user.addStock(stock);
-		user.addShare(share);
 		
-		userService.saveOrUpdateUser(user);
 	}
 	
 	public void stockTrade(User userA, User userB, Stock stock, Share share) {
