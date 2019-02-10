@@ -34,6 +34,8 @@ public class TransactionController {
 	@PostMapping("/sell")
 	public String sellStock(Share share) {
 		
+		stockTransaction(share);
+		
 		return "home";
 	}
 	
