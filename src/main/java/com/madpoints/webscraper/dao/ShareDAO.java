@@ -6,6 +6,8 @@ public interface ShareDAO {
 
 	public Share getShare(int id);
 	
-	public void saveShare(Share userShareS);
+	public Share getShare(Share share);
+	
+	public void saveShare(Share share);
 	
 }

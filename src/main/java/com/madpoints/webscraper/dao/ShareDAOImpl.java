@@ -20,13 +20,23 @@ public class ShareDAOImpl implements ShareDAO {
 		
 		return null;
 	}
-
+	
 	@Override
-	public void saveShare(Share userShare) {
+	public Share getShare(Share share) {
+		
+		int userId = share.getUserId();
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		currentSession.saveOrUpdate(userShare);
+		return null;
+	}
+
+	@Override
+	public void saveShare(Share share) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.saveOrUpdate(share);
 	}
 
 }
