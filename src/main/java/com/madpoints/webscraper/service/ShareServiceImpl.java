@@ -15,16 +15,16 @@ public class ShareServiceImpl implements ShareService {
 
 	@Override
 	@Transactional
-	public Share getUserShare(int id) {
+	public Share getShare(int id) {
 
-		return userStockDAO.getUserShare(id);
+		return userStockDAO.getShare(id);
 	}
 
 	@Override
 	@Transactional
-	public void saveUserShare(Share userShare) {
+	public void saveShare(Share userShare) {
 		
-		userStockDAO.saveUserShare(userShare);
+		userStockDAO.saveShare(userShare);
 	}
 
 }

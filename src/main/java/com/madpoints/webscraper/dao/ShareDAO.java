@@ -4,8 +4,8 @@ import com.madpoints.webscraper.entity.Share;
 
 public interface ShareDAO {
 
-	public Share getUserShare(int id);
+	public Share getShare(int id);
 	
-	public void saveUserShare(Share userShareS);
+	public void saveShare(Share userShareS);
 	
 }

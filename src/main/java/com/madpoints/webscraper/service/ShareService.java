@@ -4,8 +4,8 @@ import com.madpoints.webscraper.entity.Share;
 
 public interface ShareService {
 	
-	public Share getUserShare(int id);
+	public Share getShare(int id);
 	
-	public void saveUserShare(Share userShare);
+	public void saveShare(Share userShare);
 	
 }

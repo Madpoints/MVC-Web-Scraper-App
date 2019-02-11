@@ -14,7 +14,7 @@ public class ShareDAOImpl implements ShareDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public Share getUserShare(int id) {
+	public Share getShare(int id) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -22,7 +22,7 @@ public class ShareDAOImpl implements ShareDAO {
 	}
 
 	@Override
-	public void saveUserShare(Share userShare) {
+	public void saveShare(Share userShare) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
