@@ -67,7 +67,7 @@ public class StockController {
 		
 		theModel.addAttribute("stock", stock);
 		
-		return null;
+		return "buy";
 	}
 	
 	@GetMapping("/sell")
@@ -77,7 +77,7 @@ public class StockController {
 		
 		theModel.addAttribute("stock", stock);
 		
-		return null;
+		return "sell";
 	}
 	
 	private static List<Stock> scrapeAndSetStocks() {
