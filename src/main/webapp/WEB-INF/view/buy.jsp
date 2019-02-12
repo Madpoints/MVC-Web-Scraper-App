@@ -50,6 +50,12 @@
 	<form:form action="buy" 
 				modelAttribute="share" 
 				method="POST">
+				
+		
+		<label>Shares:</label>
+		<form:input path="shares" type="number" required="required"/>
+
+		<input type="submit" value="Buy" />
 
 	</form:form>
 	
