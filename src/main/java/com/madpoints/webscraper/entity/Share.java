@@ -16,6 +16,9 @@ public class Share {
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="user_id")
+	private int userId;
+	
 	@Column(name="stock_id")
 	private int stockId;
 	
