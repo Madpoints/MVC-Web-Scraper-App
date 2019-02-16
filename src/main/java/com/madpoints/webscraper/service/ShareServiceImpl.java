@@ -1,5 +1,7 @@
 package com.madpoints.webscraper.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,27 +13,28 @@ import com.madpoints.webscraper.entity.Share;
 public class ShareServiceImpl implements ShareService {
 	
 	@Autowired
-	ShareDAO userStockDAO;
+	ShareDAO shareDAO;
 
 	@Override
 	@Transactional
 	public Share getShare(int id) {
 
-		return userStockDAO.getShare(id);
+		return shareDAO.getShare(id);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	@Transactional
-	public Share getShare(Share share) {
+	public List getShare(Share share) {
 		
-		return userStockDAO.getShare(share);
+		return shareDAO.getShare(share);
 	}
 
 	@Override
 	@Transactional
 	public void saveShare(Share userShare) {
 		
-		userStockDAO.saveShare(userShare);
+		shareDAO.saveShare(userShare);
 	}
 
 }
