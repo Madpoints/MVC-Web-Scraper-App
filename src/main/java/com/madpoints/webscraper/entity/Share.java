@@ -44,6 +44,14 @@ public class Share {
 		this.stockId = userId;
 	}
 
+	public int getStockId() {
+		return stockId;
+	}
+
+	public void setStockId(int stockId) {
+		this.stockId = stockId;
+	}
+
 	public int getShares() {
 		return shares;
 	}
