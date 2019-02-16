@@ -41,6 +41,11 @@ public class TransactionController {
 	
 	public void stockTransaction(Share share) {
 		
+		Share theShare = shareService.getShare(share);
+		
+		User theUser = userService.getUser(share.getUserId());
+		
+		Stock theStock = stockService.getStock(share.getStockId());
 		
 	}
 	
