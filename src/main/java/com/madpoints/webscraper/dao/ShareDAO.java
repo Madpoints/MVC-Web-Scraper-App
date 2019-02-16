@@ -1,12 +1,15 @@
 package com.madpoints.webscraper.dao;
 
+import java.util.List;
+
 import com.madpoints.webscraper.entity.Share;
 
 public interface ShareDAO {
 
 	public Share getShare(int id);
 	
-	public Share getShare(Share share);
+	@SuppressWarnings("rawtypes")
+	public List getShare(Share share);
 	
 	public void saveShare(Share share);
 	

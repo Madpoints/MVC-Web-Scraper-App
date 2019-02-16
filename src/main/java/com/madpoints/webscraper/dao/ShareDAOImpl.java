@@ -1,7 +1,10 @@
 package com.madpoints.webscraper.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,17 +21,22 @@ public class ShareDAOImpl implements ShareDAO {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		return null;
+		return currentSession.get(Share.class, id);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
-	public Share getShare(Share share) {
+	public List getShare(Share share) {
 		
 		int userId = share.getUserId();
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		return null;
+		Query theQuery = currentSession.createQuery("from Share where userId=:userId");
+		
+		theQuery.setParameter("userId", userId);
+		
+		return theQuery.getResultList();
 	}
 
 	@Override
