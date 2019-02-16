@@ -1,5 +1,7 @@
 package com.madpoints.webscraper.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,13 +41,26 @@ public class TransactionController {
 		return "home";
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public void stockTransaction(Share share) {
 		
-		Share theShare = shareService.getShare(share);
+		List resultList = shareService.getShare(share);
 		
 		User theUser = userService.getUser(share.getUserId());
 		
-		Stock theStock = stockService.getStock(share.getStockId());
+		Stock theStock = stockService.getStock(share.getStockId());	
+		
+		if (resultList.isEmpty()) {
+			
+			shareService.saveShare(share);
+			
+			theUser.addShare(share);
+			theUser.addStock(stock);
+			
+		} else {
+			
+		}
+		
 		
 	}
 	
