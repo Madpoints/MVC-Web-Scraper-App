@@ -55,7 +55,7 @@ public class TransactionController {
 			shareService.saveShare(share);
 			
 			theUser.addShare(share);
-			theUser.addStock(stock);
+			theUser.addStock(theStock);
 			
 		} else {
 			

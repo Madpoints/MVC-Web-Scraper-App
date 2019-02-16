@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.madpoints.webscraper.entity.Share;
 import com.madpoints.webscraper.entity.Stock;
-import com.madpoints.webscraper.entity.User;
-import com.madpoints.webscraper.service.ShareService;
 import com.madpoints.webscraper.service.StockService;
 
 @Controller
