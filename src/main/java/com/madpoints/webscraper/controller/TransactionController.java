@@ -68,11 +68,20 @@ public class TransactionController {
 			if (newShares <= 0) {
 				
 				shareService.deleteShare(theShare.getId());
+				
+				theUser.getStocks().remove(theStock);
+				theUser.getShares().remove(theShare);
+				
+				userService.saveOrUpdateUser(theUser);
+				
+			} else {
+				
+				theShare.setShares(newShares);
+				
+				shareService.saveShare(theShare);
+				
 			}
 			
-			theShare.setShares(newShares);
-			
-			shareService.saveShare(theShare);
 		}
 		
 		
