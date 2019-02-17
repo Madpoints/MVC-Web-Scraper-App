@@ -47,4 +47,17 @@ public class ShareDAOImpl implements ShareDAO {
 		currentSession.saveOrUpdate(share);
 	}
 
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void deleteShare(int id) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Query theQuery = 
+				currentSession.createQuery("delete from Share where id=:id");
+		theQuery.setParameter("id", id);
+		
+		theQuery.executeUpdate();	
+	}
+
 }
