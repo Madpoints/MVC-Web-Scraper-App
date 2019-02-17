@@ -65,6 +65,11 @@ public class TransactionController {
 			int tempShares = share.getShares();
 			int newShares = sharesOwned + tempShares;
 			
+			if (newShares <= 0) {
+				
+				shareService.deleteShare(theShare.getId());
+			}
+			
 			theShare.setShares(newShares);
 			
 			shareService.saveShare(theShare);
