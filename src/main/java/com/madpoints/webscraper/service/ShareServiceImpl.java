@@ -37,4 +37,10 @@ public class ShareServiceImpl implements ShareService {
 		shareDAO.saveShare(userShare);
 	}
 
+	@Override
+	public void deleteShare(int id) {
+		
+		shareDAO.deleteShare(id);
+	}
+
 }

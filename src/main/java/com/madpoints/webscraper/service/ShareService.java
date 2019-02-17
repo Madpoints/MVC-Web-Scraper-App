@@ -13,4 +13,6 @@ public interface ShareService {
 	
 	public void saveShare(Share share);
 	
+	public void deleteShare(int id);
+	
 }
