@@ -50,6 +50,8 @@ public class TransactionController {
 		
 		Stock theStock = stockService.getStock(share.getStockId());	
 		
+		Share theShare;
+		
 		if (resultList.isEmpty()) {
 			
 			shareService.saveShare(share);
@@ -59,6 +61,15 @@ public class TransactionController {
 			
 		} else {
 			
+			theShare = (Share) resultList.get(0);
+			
+			int sharesOwned = theShare.getShares();
+			int tempShares = share.getShares();
+			int newShares = sharesOwned + tempShares;
+			
+			theShare.setShares(newShares);
+			
+			shareService.saveShare(theShare);
 		}
 		
 		
