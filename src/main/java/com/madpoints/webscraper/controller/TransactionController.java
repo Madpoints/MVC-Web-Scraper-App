@@ -48,6 +48,9 @@ public class TransactionController {
 		
 		User theUser = userService.getUser(share.getUserId());
 		
+		List<Share> userShares = theUser.getShares();
+		List<Stock> userStocks = theUser.getStocks();
+		
 		Stock theStock = stockService.getStock(share.getStockId());	
 		
 		if (resultList.isEmpty()) {
@@ -69,12 +72,17 @@ public class TransactionController {
 				
 				shareService.deleteShare(theShare.getId());
 				
-				theUser.getStocks().remove(theStock);
-				theUser.getShares().remove(theShare);
+				userStocks.remove(theStock);
+				userShares.remove(theShare);
+				
+				theUser.setStocks(userStocks);
+				theUser.setShares(userShares);
 				
 				userService.saveOrUpdateUser(theUser);
 				
 			} else {
+				
+				theUser.getShares().remove(theShare);
 				
 				theShare.setShares(newShares);
 				
